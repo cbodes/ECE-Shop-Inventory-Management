@@ -5,28 +5,33 @@ import computedCounts from './counts'
 import { state, signal } from "cerebral/tags";
 import MenuItem from './MenuItem';
 import fontawesome from '@fortawesome/fontawesome';
+import {clearMenuSelection} from "./sequences";
 
 
 export default connect(
     {
         currentComponent: state`componentSelection`,
+        clearMenuSelection: signal`clearMenuSelection`
     },
-    function App({ props, counts, currentComponent}) {
+    function App({ props, counts, currentComponent, clearMenuSelection }) {
         return (
             <div class="container is-fluid">
                 <div class="columns" id = "root-wrapper">
                     <div class="column is-one-fifth has-text-centered">
-                        <aside id="menu-wrapper" class="menu">
-                            <div class="box">
+
+                        <aside id="menu-wrapper" class="menu ">
+                            <div class="box has-background-white-ter">
                                 <MenuItem/>
-                                <div class="container has-text-left">
-                                </div>
+                            </div>
+                            <div className="container has-text-left">
+                                <a className="button is-danger is-outlined"
+                                onClick={() =>
+                                    clearMenuSelection()
+                                }>
+                                    Clear filters
+                                </a>
                             </div>
                         </aside>
-                        <div className="has-text-left ">
-                            <a className="button ">clear filters
-                            </a>
-                        </div>
                     </div>
 
                     <div class="column">
@@ -37,7 +42,7 @@ export default connect(
                             <p className="content">{currentComponent.toString()}</p>
                         </div>
                         <div class="notification has-text-centered">
-                            <p class="content">Select a filter to get started</p>
+                            <p class="content">Select a filter or search to get started</p>
                         </div>
                     </div>
                     <div class="column is-one-fifth"></div>

@@ -18,7 +18,8 @@ export default Module({
                 ["PNP", ["BJT", "MOSFET"]],
             ]],
             ["Connectors", []],
-            ["Equipment", []],
+            ["Wires", []],
+            ["Equipment", ["Tools", "Lab Instruments"]],
 
         ],
     },
