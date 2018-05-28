@@ -15,9 +15,9 @@ export default connect(
         return (
             <div class="container is-fluid">
                 <div class="columns" id = "root-wrapper">
-                    <div class="column is-one-quarter has-text-centered">
+                    <div class="column is-one-fifth has-text-centered">
                         <aside id="menu-wrapper" class="menu">
-                            <div class="box is-primary">
+                            <div class="box">
                                 <MenuItem/>
                                 <div class="container has-text-left">
                                 </div>
