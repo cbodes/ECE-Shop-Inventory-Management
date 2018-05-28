@@ -1,0 +1,34 @@
+
+#root-wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+
+#entry-box {
+  height: 100%;
+  background-color: gold;
+}
+
+#tree-box {
+  background-color: darkgoldenrod;
+}
+
+#entry-wrapper {
+  margin-top: 10px;
+  width: 95%;
+  flex: 1;
+}
+#content-wrapper {
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+}
+#tree-wrapper {
+  width:95%;
+}
+
+
+#menu-wrapper {
+
+}

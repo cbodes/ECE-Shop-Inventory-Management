@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ae7adabb-9c38-451f-8504-8591d86afec1" name="test" url="http://localhost:3000">
+        <fileTransfer port="0" mountedRoot="/media/cam/ARCH_201805" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
