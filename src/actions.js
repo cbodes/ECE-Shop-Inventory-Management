@@ -1,4 +1,4 @@
-export function addSelection ({state, props, test}) {
+export function addSelection ({state, props}) {
     //state.get(`subComponentSelection`).push(state.get(`newComponentSelection`))
     //state.set(`subComponentSelection`, + state.get(`newComponentSelection`))
 

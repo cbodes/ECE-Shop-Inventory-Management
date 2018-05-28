@@ -22,6 +22,7 @@ export default Module({
     },
     signals: {
         menuSelectionChanged: sequences.changeMenuSelection,
+        clearMenuSelection: sequences.clearMenuSelection,
     },
     providers: {
             test: {

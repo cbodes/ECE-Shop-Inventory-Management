@@ -15,15 +15,14 @@ export default connect(
         return (
             <div class="container is-fluid">
                 <div class="columns" id = "root-wrapper">
-                    <div class="column is-one-fifth has-text-centered">
+                    <div class="column is-one-quarter has-text-centered">
                         <aside id="menu-wrapper" class="menu">
                             <div class="box is-primary">
-                                <div className="has-text-right line">
+                                <div className="has-text-right line ">
                                     <button className="delete"></button>
                                 </div>
                                 <MenuItem/>
                                 <a class="button">button
-
                                 </a>
                                 <a className="button is-danger is-outlined">
                                     <span className="icon is-small">

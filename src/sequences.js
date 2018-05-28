@@ -21,7 +21,6 @@ export const changeMenuSelection = [
 ];
 
 
-export const changeSubMenuSelection = [
-    set(state`newComponentSelection`, props`subSelection`),
-    actions.addSelection
+export const clearMenuSelection = [
+    set(state`componentSelection`, [])
 ];
