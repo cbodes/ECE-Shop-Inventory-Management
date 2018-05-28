@@ -18,21 +18,15 @@ export default connect(
                     <div class="column is-one-quarter has-text-centered">
                         <aside id="menu-wrapper" class="menu">
                             <div class="box is-primary">
-                                <div className="has-text-right line ">
-                                    <button className="delete"></button>
-                                </div>
                                 <MenuItem/>
-                                <a class="button">button
-                                </a>
-                                <a className="button is-danger is-outlined">
-                                    <span className="icon is-small">
-                                        <i className="fas fa-1x">
-                                        </i>
-                                    </span>
-
-                                </a>
+                                <div class="container has-text-left">
+                                </div>
                             </div>
                         </aside>
+                        <div className="has-text-left ">
+                            <a className="button ">clear filters
+                            </a>
+                        </div>
                     </div>
 
                     <div class="column">

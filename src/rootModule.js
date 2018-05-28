@@ -17,7 +17,9 @@ export default Module({
                 ["NPN", ["BJT", "MOSFET"]],
                 ["PNP", ["BJT", "MOSFET"]],
             ]],
+            ["Connectors", []],
             ["Equipment", []],
+
         ],
     },
     signals: {
