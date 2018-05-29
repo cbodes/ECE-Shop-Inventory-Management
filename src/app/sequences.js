@@ -2,7 +2,7 @@
 import { set, toggle, unset, when } from 'cerebral/operators'
 import { props, state } from 'cerebral/tags'
 import * as actions from './actions'
-import * as helpers from './helpers'
+import * as helpers from '../helpers'
 import {addSelection} from "./actions";
 
 /*export const changeMenuSelection = [

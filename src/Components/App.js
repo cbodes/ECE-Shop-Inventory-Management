@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from '@cerebral/react'
-import './App.css';
-import computedCounts from './counts'
+import '../App.css';
 import { state, signal } from "cerebral/tags";
 import MenuItem from './MenuItem';
+import SearchArea from './SearchArea'
+import "bulma"
 import fontawesome from '@fortawesome/fontawesome';
-import {clearMenuSelection} from "./sequences";
+import {clearMenuSelection} from "../app/sequences";
 
 
 export default connect(
@@ -16,13 +17,14 @@ export default connect(
     function App({ props, counts, currentComponent, clearMenuSelection }) {
         return (
             <div class="container is-fluid">
-                <div class="columns" id = "root-wrapper">
-                    <div class="column is-one-fifth has-text-centered">
 
-                        <aside id="menu-wrapper" class="menu ">
-                            <div class="box has-background-white-ter">
+                <div className="notification has-text-centered" id="page-heading">
+                    <p className="subtitle is-1" id="heading-title">Purdue ECE Shop Part Catalog</p>
+                </div>
+                <div class="columns is-multiline" id = "root-wrapper">
+                    <div class="column is-one-fifth has-text-left">
+
                                 <MenuItem/>
-                            </div>
                             <div className="container has-text-left">
                                 <a className="button is-danger is-outlined"
                                 onClick={() =>
@@ -31,15 +33,11 @@ export default connect(
                                     Clear filters
                                 </a>
                             </div>
-                        </aside>
                     </div>
 
-                    <div class="column">
-                        <div class="notification is-primary">
-                            <p class="title">{currentComponent}</p>
-                        </div>
-                        <div className="notification">
-                            <p className="content">{currentComponent.toString()}</p>
+                    <div class="column is-three-fifths">
+                        <div className="box">
+                            <SearchArea/>
                         </div>
                         <div class="notification has-text-centered">
                             <p class="content">Select a filter or search to get started</p>
@@ -51,3 +49,7 @@ export default connect(
         )
     }
 )
+
+const mainStyle = {
+    backgroundColor: 'grey',
+}

@@ -12,6 +12,7 @@ export default connect (
     function NewComponentID({currentSelection, changeSelection, menuItems}){
         return (
             <ul class="menu-list">
+                <p class="menu-label"> Menu </p>
                 {menuItems.map(menuArray => (currentSelection[0] === undefined || currentSelection[0] == menuArray[0]) &&
                 <li onClick={() => {
                     changeSelection({
@@ -32,7 +33,8 @@ export default connect (
                                 {currentSelection[1] == x[0] && Array.isArray(x) && x[1] &&
                                 <ul>
                                     {x[1].map(z =>
-                                        <li onClick={() => {
+                                        <li onClick={(e) => {
+                                            e.preventDefault();
                                             changeSelection ({
                                                 menuSelection: (Array.isArray(z) ? [menuArray[0], x[0], z[0]] : [menuArray[0], x[0], z])
                                             })
