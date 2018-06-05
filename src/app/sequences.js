@@ -20,6 +20,13 @@ export const changeMenuSelection = [
     }
 ];
 
+export const submitEntry = [
+    actions.submitEntry
+]
+
+export const changeEntryValue = [
+  set(state`menuItems.${props`componentName`}.entryOptions.${props`entryName`}.value`, props`newValue`)
+];
 
 export const clearMenuSelection = [
     set(state`componentSelection`, [])

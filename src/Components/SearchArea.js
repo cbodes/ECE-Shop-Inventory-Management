@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from '@cerebral/react'
 import { state, signal } from 'cerebral/tags'
-
+import Slider, {Range} from 'rc-slider';
+import '../../node_modules/rc-slider/assets/index.css';
 
 export default connect (
     {
@@ -16,26 +17,27 @@ export default connect (
                 <div className="tile">
                     <div className="tile is-parent">
                         <article className="tile is-child box">
-                            <p className="title">Value</p>
+                            <p className="title is-4">Value</p>
                             <div className="field has-addons">
-                                <div className="control">
-                        <span className="button is-active is-rounded is-right">
-                            Tolerance
-                        </span>
-                                </div>
                                 <div className="control is-expanded">
                                     <input className="input" type="text" placeholder="Find a part"/>
                                 </div>
                             </div>
                         </article>
                     </div>
+
+                    <div className="tile is-parent">
+                        <article className="tile notification is-child box">
+                            <p className="title is-4">Tolerance</p>
+                            <Slider step={50} defaultValue={100} marks={{0:"1%", 50:"5%", 100:"10%"}}>
+
+                            </Slider>
+                        </article>
+                    </div>
+
                 </div>
                 <div className="tile">
                     <div className="tile is-parent">
-                        <article className="tile is-child box">
-                            <p className="title">Value</p>
-                            <input className="input" type="text" placeholder="Enter a value"/>
-                        </article>
                     </div>
                 </div>
             </div>

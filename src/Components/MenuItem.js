@@ -12,47 +12,40 @@ export default connect (
     function NewComponentID({currentSelection, changeSelection, menuItems}){
         return (
             <ul class="menu-list">
-                <p class="menu-label"> Menu </p>
-                {menuItems.map(menuArray => (currentSelection[0] === undefined || currentSelection[0] == menuArray[0]) &&
+                {Object.keys(menuItems).map(menuArray =>
                 <li onClick={() => {
                     changeSelection({
-                        menuSelection: [menuArray[0]]
+                        menuSelection: [menuArray]
                     })
                 }}>
-                <a class = {currentSelection[0]===menuArray[0] ? "is-active" : ""
-                }>{menuArray[0]}</a>
-                    {currentSelection[0]===menuArray[0] && Array.isArray(menuArray) && menuArray[1] &&
-                    <ul>
-                        {menuArray[1].map(x =>
-                        <li onClick={() => {
-                            changeSelection ({
-                                menuSelection: (Array.isArray(x) ? [menuArray[0], x[0]] : [menuArray[0], x])
-                            })
-                        }}><a class = {currentSelection[1]===(Array.isArray(x) ? x[0] : x) ? "is-active" : ""}>
-                            {Array.isArray(x) ? x[0] : x}</a>
-                                {currentSelection[1] == x[0] && Array.isArray(x) && x[1] &&
-                                <ul>
-                                    {x[1].map(z =>
-                                        <li onClick={(e) => {
-                                            e.preventDefault();
-                                            changeSelection ({
-                                                menuSelection: (Array.isArray(z) ? [menuArray[0], x[0], z[0]] : [menuArray[0], x[0], z])
-                                            })
-                                        }}><a className={currentSelection[2] === z ? "is-active" : ""}>
-                                            {z}
-                                        </a></li>
-                                    )}
-                                </ul>
-                            }
-
-                        </li>
-                        )}
-                    </ul>
-                    }
-            </li>
-
+                    <a class = {currentSelection[0]===menuArray ? "is-active" : ""}>
+                        <span className="icon">
+                            <img className="icon" src={require("../images/" + menuItems[menuArray].iconName)}>
+                            </img>
+                        </span>
+                        <span> {menuArray}</span>
+                    </a>
+                </li>
                 )}
             </ul>
+            /*<nav className="tabs is-centered is-toggle">
+                <ul>
+                {Object.keys(menuItems).map(menuArray =>
+                    <li onClick={() => {
+                        changeSelection({
+                            menuSelection: [menuArray]
+                        })
+                    }}>
+                        <a className={currentSelection[0] === menuArray ? "is-active" : ""}>
+                            <span className="icon">
+                                <img className="icon" src={require("../images/" + menuItems[menuArray].iconName)}/>
+                            </span>
+                            <span> {menuArray} </span>
+                        </a>
+                    </li>
+                )}
+                </ul>
+            </nav>*/
 
         )
     }

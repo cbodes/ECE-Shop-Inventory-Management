@@ -5,16 +5,39 @@ html, body {
   height: 100%;
 }
 
-.notification {
-  background-color: #aaa8b1;
+#front-page-column {
+  min-width: 170px;
+  max-width: 250px;
 }
 
+.is-shady {
+  animation: flyintoright .4s backwards;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, .1) 0 1px 0;
+  border-radius: 4px;
+  margin: 10px;
+  position: relative;
+  transition: all .2s ease-in-out;
+}
+.is-shady:hover {
+  box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
+}
+
+.has-backshadow {
+  box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
+}
+
+.notification {
+}
 #menu-box {
   background-color: #000000;
   color: #000000;
 
 }
 
+.is-dark {
+  color: #5B6870;
+}
 #root {
   height: 100%;
 }
