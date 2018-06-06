@@ -28,17 +28,21 @@ export default connect(
                     </label>
                 </div>
                 <div className="level">
-                    <div className="level-item level-left">
+                    <div className="level-item">
                         <div className="field has-addons">
                             {myObject["options"].map(x =>
                             <p className="control">
-                                <a className={myObject["value"] === x && active ?
+                                <a className={!active ? "button is-dark is-static" :
+                                    myObject["value"] === x && active ?
                                     "button is-dark" : "button is-dark is-outlined"}
-                                    onClick={() => changeEntryValue({
-                                        newValue: x,
-                                        entryName: name,
-                                        componentName: currentComponent[0]
-                                    })}>
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        changeEntryValue({
+                                            newValue: x,
+                                            entryName: name,
+                                            componentName: currentComponent[0]
+                                        })
+                                    }}>
                                     {x}
                                 </a>
                             </p>

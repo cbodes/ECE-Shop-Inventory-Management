@@ -6,6 +6,8 @@ import SearchArea from './SearchArea'
 import fontawesome from '@fortawesome/fontawesome';
 import {clearMenuSelection} from "../app/sequences";
 
+import "../../node_modules/bulma/css/bulma.css"
+
 export default connect(
     {
         menuItems: state`menuItems`,
@@ -17,7 +19,7 @@ export default connect(
                 <main>
                     <section className="hero is-dark is-small">
                         <div className="hero-head has-text-centered">
-                            <p className="title">ECE Shop</p>
+                            <p className="title  is-1">ECE Shop</p>
                         </div>
 
                         <div className="hero-body">
@@ -36,13 +38,13 @@ export default connect(
                             </p>
                         </div>
                     </section>
-                    <div className="columns is-centered is-multiline is-mobile" >
+                    <div className="columns is-centered is-multiline is-mobile is-marginless" >
                     {newMenu.map((x) =>
                         <div className="column is-3" id="front-page-column">
                             <article className="message is-dark is-shady is-bold">
                                 <div className="message-header">
                                     <div className="container has-text-centered">
-                                    <p className="subtitle is-6 has-text-white">{x}</p>
+                                    <p className="title is-6 has-text-white">{x}</p>
                                     </div>
                                 </div>
                                 <div className="message-body is-small">

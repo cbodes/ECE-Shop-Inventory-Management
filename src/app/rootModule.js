@@ -4,6 +4,7 @@ import * as sequences from './sequences'
 export default Module({
     state: {
         componentSelection: ["Resistors"],
+        menuIsActive: false,
         menuItems : {
             "Resistors" : {
                 iconName: "resistor_icon.png",
@@ -365,13 +366,15 @@ export default Module({
                 }
             },
         },
-        currentPage: "Entry"
+        currentPage: "Front"
     },
     signals: {
         menuSelectionChanged: sequences.changeMenuSelection,
         clearMenuSelection: sequences.clearMenuSelection,
         changeEntryValue: sequences.changeEntryValue,
         submitEntry: sequences.submitEntry,
+        menuButtonPressed: sequences.activateMenu,
+        pageChangeClicked: sequences.changePage
     },
     providers: {
             test: {

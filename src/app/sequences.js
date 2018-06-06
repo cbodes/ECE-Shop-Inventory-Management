@@ -20,6 +20,14 @@ export const changeMenuSelection = [
     }
 ];
 
+export const changePage = [
+    set(state`currentPage`, props`newPage`)
+];
+
+export const activateMenu = [
+    toggle(state`menuIsActive`)
+]
+
 export const submitEntry = [
     actions.submitEntry
 ]

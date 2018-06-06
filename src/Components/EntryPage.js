@@ -6,6 +6,7 @@ import RadioEntry from './RadioEntry'
 import TextEntry from './TextEntry';
 import EntryNavBar from './entryNavBar';
 
+
 export default connect(
     {
         submitEntry: signal`submitEntry`,
@@ -55,10 +56,12 @@ export default connect(
                             <div className="buttons is-centered">
                                 <a className="button is-danger">Clear</a>
                                 <a className="button is-success"
-                                   onClick={(e) => submitEntry({
-                                       componentName: currentComponent[0]
-                                   })
+                                   onClick={(e) => {
                                        e.preventDefault()
+                                       submitEntry({
+                                           componentName: currentComponent[0]
+                                       })
+                                   }
                                    }
                                 >Submit</a>
                             </div>
