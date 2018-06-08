@@ -48,9 +48,7 @@ export default connect(
                                             === entryObject["entryOptions"][rows]['isActive'][1])
                                             }
                                     /> : null
-
                             )}
-
                             <div className="buttons is-centered">
                                 <a className="button is-danger">Clear</a>
                                 <a className="button is-success"

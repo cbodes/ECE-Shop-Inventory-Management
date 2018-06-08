@@ -19,7 +19,6 @@ export default connect(
                         {Object.keys(tableHeaders).map(name =>
                             <th className="has-text-centered">{tableHeaders[name].itemName +
                             (tableHeaders[name].unit && " (" + tableHeaders[name].unit + ")")}</th>
-
                         )}
                     </tr>
                     </thead>

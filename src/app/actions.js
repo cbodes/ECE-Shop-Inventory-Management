@@ -1,5 +1,7 @@
 import React from 'react'
 
+const serverPath = 'https://128.46.74.195:8443';
+
 export function addSelection ({state, props}) {
     //state.get(`subComponentSelection`).push(state.get(`newComponentSelection`))
     //state.set(`subComponentSelection`, + state.get(`newComponentSelection`))
@@ -20,7 +22,7 @@ export function deleteEntry ({state, props}) {
     } else {
         return
     }
-    fetch('http://128.46.74.195:3000' + '/api/' + currComp.toLowerCase() + '/' + props.idToDelete, {
+    fetch(serverPath + '/api/' + currComp.toLowerCase() + '/' + props.idToDelete, {
         method: 'DELETE',
         mode: 'cors',
         headers: {
@@ -43,7 +45,7 @@ export function submitEntry ({state}) {
 
     const objToSend = buildEntryJSON(stateObj);
 
-    const promise = fetch('http://128.46.74.195:3000' + '/api/' + componentName, {
+    const promise = fetch(serverPath + '/api/' + componentName, {
         method: 'POST',
         body: JSON.stringify(objToSend),
         mode: 'cors',
@@ -61,8 +63,11 @@ export function submitEntry ({state}) {
 
 export function getData ({state}) {
     const currComp = state.get(`componentSelection`)[0];
+    const stateObj = state.get(`menuItems.${currComp}.entryOptions`);
+
+
     let data;
-    fetch('http://128.46.74.195:3000' + '/api/' + currComp.toLowerCase(), {
+    fetch(serverPath + '/api/' + currComp.toLowerCase(), {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -73,13 +78,45 @@ export function getData ({state}) {
         .then(response => response.json())
         .catch(error => console.error('Error:'))
         .then(getResults => {
-            data = getResults;
             if (data === undefined) {
                 return;
             }
-            state.set(`getData`, data.results);
+            data = getResults.results;
+            data = adjustForPrefix(data, stateObj);
+            state.set(`getData`, data);
         })
 }
+
+function adjustForPrefix(myData, stateObj) {
+    const conversionTree = {
+        12: "T",
+        9: "G",
+        6: "M",
+        3: "k",
+        "-3": "m",
+        "-6": "μ",
+        "-9": "n",
+        "-12": "p"
+    };
+
+
+    let row, item, key, newValue;
+    for (row in myData) {
+        for (item in myData[row]) {
+            if (myData[row][item] && stateObj[item] && stateObj[item].canPrefix) {
+                for (key in conversionTree) {
+                    newValue = myData[row][item] / Math.pow(10, parseInt(key));
+                    if (newValue >= 1 && newValue <= 999) {
+                        myData[row][item] = newValue.toString() + conversionTree[key];
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return myData;
+}
+
 
 function buildEntryJSON (entryObject) {
     const conversionTree = {

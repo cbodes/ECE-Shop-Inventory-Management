@@ -9,7 +9,7 @@ import {props, state, signal } from "cerebral/tags";
 export default connect(
     {
         changeFilterValue: signal`changeFilterValue`,
-        myObject: state`menuItems.${state`componentSelection.0`}.entryOptions.${props`entryName`}`,
+        myObject: state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}`,
         name: props`entryName`,
         unit: props`unit`,
         showName: props`showName`
