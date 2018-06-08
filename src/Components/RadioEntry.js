@@ -8,29 +8,28 @@ import {props, state, signal } from "cerebral/tags";
 
 export default connect(
     {
-        currentComponent: state`componentSelection`,
         changeEntryValue: signal`changeEntryValue`,
-        menuItems: state`menuItems`,
+        myObject: state`menuItems.${state`componentSelection.0`}.entryOptions.${props`entryName`}`,
         name: props`entryName`,
-        active: props`isActive`
+        active: props`isActive`,
+        showName: props`showName`
     },
-    function App({ menuItems, name, currentComponent, changeEntryValue, active}) {
-        const myObject = menuItems[currentComponent[0]]["entryOptions"][name];
+    function App({ myObject, name, currentComponent, changeEntryValue, active, showName}) {
 
         return (
 
             <div className="field">
                 <div className="field-label is-normal">
                     <label className="label">
-                        <p class="subtitle is-6 has-text-left">
-                            {name}
+                        <p className="subtitle is-6 has-text-left">
+                            {showName && myObject.itemName}
                         </p>
                     </label>
                 </div>
                 <div className="level">
                     <div className="level-item">
                         <div className="field has-addons">
-                            {myObject["options"].map(x =>
+                            {myObject["options"] != undefined && myObject["options"].map(x =>
                             <p className="control">
                                 <a className={!active ? "button is-dark is-static" :
                                     myObject["value"] === x && active ?
@@ -39,8 +38,7 @@ export default connect(
                                         e.preventDefault()
                                         changeEntryValue({
                                             newValue: x,
-                                            entryName: name,
-                                            componentName: currentComponent[0]
+                                            entryName: name
                                         })
                                     }}>
                                     {x}

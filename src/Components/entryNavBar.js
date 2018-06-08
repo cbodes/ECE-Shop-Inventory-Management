@@ -40,7 +40,8 @@ export default connect(
                     <div className={menuIsActive ? "navbar-menu is-active" : "navbar-menu"} id="navBarMenu">
                         <div className="navbar-start">
                             <div className="navbar-item has-dropdown is-hoverable has-text-white">
-                                <a className="navbar-link">Choose a component</a>
+                                <a className="navbar-link">{currentComponent[0] === undefined ? "choose a component" :
+                                menuItems[currentComponent[0]].itemName}</a>
                                 <div className="navbar-dropdown is-boxed">
                                     {Object.keys(menuItems).map(x =>
                                         <a className= {currentComponent[0] === x ? "navbar-item is-active" : "navbar-item"}
@@ -48,18 +49,18 @@ export default connect(
                                                activateMenu()
                                                changeSelection({menuSelection: [x]})
                                            }}>
-                                            <a className={currentComponent[0] === x ? "is-active is-dark" : ""}>
-                                        <span className="icon">
+                                            <p className={currentComponent[0] === x ? "is-active" : ""}>
+                                                {/*<span className={currentComponent[0] === x ? "icon invert-filter" : "icon"}>
                                             <img className="icon"
                                                  src={require("../images/" + menuItems[x].iconName)}>
                                             </img>
-                                        </span>
+                                        </span>*/}
                                                 <span className=
                                                           {currentComponent[0] === x ?
                                                               "subtitle is-6 has-text-white" :
                                                               "subtitle is-6"}>
-                                            {x}</span>
-                                            </a>
+                                            {menuItems[x].itemName}</span>
+                                            </p>
                                         </a>
                                     )}
                                 </div>

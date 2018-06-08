@@ -1,66 +1,82 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto';
-  height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    height: 100%;
+    background-color:#d0d0d0;
 }
 
+.is-table {
+    overflow-x: auto;
+}
+
+.is-plus {
+    transform: rotate(45deg);
+}
+
+.invert-filter {
+    filter: invert(100%);
+}
 
 
 a.navbar-item.is-active{
-  background-color:#363636 !important;
+    background-color:#363636 !important;
 }
 
-#front-page-column {
-  min-width: 170px;
-  max-width: 250px;
+.front-page-column {
+    min-width: 170px;
+    max-width: 250px;
+}
+#table-page-column {
+    min-width: 350px;
+    max-width: 350px;
 }
 
 .is-shady {
-  animation: flyintoright .4s backwards;
-  background: #fff;
-  box-shadow: rgba(0, 0, 0, .1) 0 1px 0;
-  border-radius: 4px;
-  margin: 10px;
-  position: relative;
-  transition: all .2s ease-in-out;
+    animation: flyintoright .4s backwards;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, .1) 0 1px 0;
+    border-radius: 4px;
+    margin: 10px;
+    position: relative;
+    transition: all .2s ease-in-out;
 }
 .is-shady:hover {
-  box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
+    box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
 }
 
 .has-backshadow {
-  box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
+    box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
 }
 
 .notification {
 }
 #menu-box {
-  background-color: #000000;
-  color: #000000;
+    background-color: #000000;
+    color: #000000;
 
 }
 
 .is-dark {
-  color: #5B6870;
+    color: #5B6870;
 }
 #root {
-  min-height: 100%;
-  background-color:#d0d0d0;
+    min-height: 100%;
+    background-color:#d0d0d0;
 }
 
 #heading-title {
-  color: #C28E0E;
+    color: #C28E0E;
 }
 
 #root-wrapper {
-  height: 100%;
-  width: 100%;
-  padding: 20px;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
 }
 
 #tree-wrapper {
-  width:95%;
+    width:95%;
 }
 
 

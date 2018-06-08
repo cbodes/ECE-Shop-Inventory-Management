@@ -6,19 +6,14 @@ import RadioEntry from './RadioEntry'
 import TextEntry from './TextEntry';
 import EntryNavBar from './entryNavBar';
 
+import EntryTable from './EntryTable';
 
 export default connect(
     {
         submitEntry: signal`submitEntry`,
-        currentComponent: state`componentSelection`,
-        menuItems: state`menuItems`,
+        entryObject: state`menuItems.${state`componentSelection.0`}`,
     },
-    function App({currentComponent, menuItems, submitEntry}) {
-        let entryList = [];
-        if (currentComponent[0] != undefined) {
-            //entryList = makeForCols(menuItems[currentComponent[0]]["entryOptions"]);
-            entryList = Object.keys(menuItems[currentComponent[0]]["entryOptions"]);
-        }
+    function App({entryObject, submitEntry}) {
         return (
 
             <main>
@@ -27,27 +22,30 @@ export default connect(
                     <div className="level-item">
                         <div className="notification has-backshadow" id="entryFormWrapper">
                             <p className="title is-3 has-text-centered">
-                                {currentComponent[0]}
+                                {entryObject.itemName}
                             </p>
-                            {entryList.map(rows =>
-                                (menuItems[currentComponent[0]]["entryOptions"][rows]["type"] === "Text") ?
+                            {Object.keys(entryObject["entryOptions"]).map(rows =>
+                                (entryObject["entryOptions"][rows]["type"] === "Text") ?
                                     <TextEntry
-                                        myName={rows}
-                                        unit={menuItems[currentComponent[0]]["entryOptions"][rows]["unit"]}/> :
+                                        showName={true}
+                                        entryName={rows}
+                                        unit={entryObject["entryOptions"][rows]["unit"]}/> :
 
-                                (menuItems[currentComponent[0]]["entryOptions"][rows]["type"] === "Radio") ?
+                                (entryObject["entryOptions"][rows]["type"] === "Radio") ?
                                     <RadioEntry
+                                        showName={true}
                                         entryName={rows}
                                         isActive={true}
                                         /> :
-                                (menuItems[currentComponent[0]]["entryOptions"][rows]["type"] === "Dropdown") ?
+                                (entryObject["entryOptions"][rows]["type"] === "Dropdown") ?
                                     <RadioEntry
+                                        showName={true}
                                         entryName={rows}
-                                        isActive={!("isActive" in menuItems[currentComponent[0]]["entryOptions"][rows]) ||
-                                        ('isActive' in menuItems[currentComponent[0]]["entryOptions"][rows] &&
-                                            menuItems[currentComponent[0]]["entryOptions"][
-                                            menuItems[currentComponent[0]]["entryOptions"][rows]['isActive'][0]]['value']
-                                            === menuItems[currentComponent[0]]["entryOptions"][rows]['isActive'][1])
+                                        isActive={!("isActive" in entryObject["entryOptions"][rows]) ||
+                                        ('isActive' in entryObject["entryOptions"][rows] &&
+                                            entryObject["entryOptions"][
+                                            entryObject["entryOptions"][rows]['isActive'][0]]['value']
+                                            === entryObject["entryOptions"][rows]['isActive'][1])
                                             }
                                     /> : null
 
@@ -58,13 +56,18 @@ export default connect(
                                 <a className="button is-success"
                                    onClick={(e) => {
                                        e.preventDefault()
-                                       submitEntry({
-                                           componentName: currentComponent[0]
-                                       })
+                                       submitEntry()
                                    }
                                    }
                                 >Submit</a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="section">
+                    <div className="columns is-centered">
+                        <div className="column is-narrow has-text-centered">
+                            <EntryTable/>
                         </div>
                     </div>
                 </div>

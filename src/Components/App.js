@@ -5,12 +5,11 @@ import { state, signal } from "cerebral/tags";
 import TablePage from './TablePage'
 import FrontPage from './FrontPage'
 import EntryPage from './EntryPage'
+import controller from '../controller'
 
 
 export default connect(
     {
-        currentComponent: state`componentSelection`,
-        clearMenuSelection: signal`clearMenuSelection`,
         currentPage: state`currentPage`
     },
     function App({currentPage}) {

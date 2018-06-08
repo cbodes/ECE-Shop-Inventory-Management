@@ -3,117 +3,247 @@ import * as sequences from './sequences'
 
 export default Module({
     state: {
-        componentSelection: ["Resistors"],
+        componentSelection: ["resistor"],
         menuIsActive: false,
         menuItems : {
-            "Resistors" : {
+            resistor : {
+                itemName: "Resistors",
                 iconName: "resistor_icon.png",
                 filterOptions: {
-                    Value : "Text",
-                },
-                entryOptions: {
-                    Location: {
-                        unit: "",
-                        type: "Text",
-                        value: ""
-                    },
-                    Value: {
+                    resistance: {
+                        itemName: "Resistance",
                         unit: "Ω",
-                        type: "Text"
+                        type: "Text",
+                        canRange: false,
+                        isRange: false,
+                        value: "No Value",
+                        canPrefix: true,
                     },
-                    Tolerance: {
+                    tolerance: {
+                        itemName: "Tolerance",
                         unit: "%",
                         type: "Text"
                     },
-                    Power: {
+                    power: {
+                        itemName: "Power",
                         unit: "W",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Package": {
+                    package: {
+                        itemName: "Package",
                         unit: "",
                         type: "Radio",
                         options: ["Through-hole", "Surface Mount"],
                         value: "Through-hole"
                     },
-                    "Package Size" : {
+                    package_size: {
+                        itemName: "Package Size",
                         type: "Dropdown",
                         options: ["0402", "0603", "0805", "1206"],
                         value: "0402",
-                        isActive: ["Package", "Surface Mount"],
+                        isActive: ["package", "Surface Mount"],
+                        unit: ""
+                    }
+                },
+                entryOptions: {
+                    location: {
+                        itemName: "Location",
+                        unit: "",
+                        type: "Text",
+                        value: ""
+                    },
+                    value: {
+                        itemName: "Resistance",
+                        unit: "Ω",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    tolerance: {
+                        itemName: "Tolerance",
+                        unit: "%",
+                        type: "Text"
+                    },
+                    power: {
+                        itemName: "Power",
+                        unit: "W",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    package: {
+                        itemName: "Package",
+                        unit: "",
+                        type: "Radio",
+                        options: ["Through-hole", "Surface Mount"],
+                        value: "Through-hole"
+                    },
+                    package_size: {
+                        itemName: "Package Size",
+                        type: "Dropdown",
+                        options: ["0402", "0603", "0805", "1206"],
+                        value: "0402",
+                        isActive: ["package", "Surface Mount"],
                         unit: ""
                     }
                 }
             },
-            "Capacitors" : {
+            capacitor : {
+                itemName: "Capacitors",
                 iconName: "capacitor_icon.png",
                 filterOptions: {
-
-                },
-                entryOptions: {
-                    Location: {
-                        unit: "",
-                        type: "Text",
-                    },
-                    Value: {
+                    capacitance: {
+                        itemName: "Capacitance",
                         unit: "F",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    Material: {
+                    material: {
+                        itemName: "Material",
                         unit: "",
                         type: "Dropdown",
                         options: [ "Ceramic", "Electrolytic", "Tantalum"],
                         value: "Ceramic"
                     },
-                    Tolerance: {
+                    tolerance: {
+                        itemName: "Tolerance",
                         unit: "%",
                         type: "Text"
                     },
-                    "Voltage Rating": {
+                    voltage_rating: {
+                        itemName: "Voltage Rating",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Package": {
+                    package: {
+                        itemName: "Package",
                         unit: "",
                         type: "Radio",
                         options: ["Through-hole", "Surface Mount"],
                         value: "Through-hole"
                     },
-                    "Package Size" : {
+                    package_size: {
+                        itemName: "Package Size",
                         type: "Dropdown",
                         options: ["0402", "0603", "0805", "1206"],
                         value: "0402",
-                        isActive: ["Package", "Surface Mount"],
+                        isActive: ["package", "Surface Mount"],
+                        unit: ""
+                    }
+                },
+                entryOptions: {
+                    location: {
+                        itemName: "Location",
+                        unit: "",
+                        type: "Text",
+                    },
+                    value: {
+                        itemName: "Capacitance",
+                        unit: "F",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    material: {
+                        itemName: "Material",
+                        unit: "",
+                        type: "Dropdown",
+                        options: [ "Ceramic", "Electrolytic", "Tantalum"],
+                        value: "Ceramic"
+                    },
+                    tolerance: {
+                        itemName: "Tolerance",
+                        unit: "%",
+                        type: "Text"
+                    },
+                    voltage_rating: {
+                        itemName: "Voltage Rating",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    package: {
+                        itemName: "Package",
+                        unit: "",
+                        type: "Radio",
+                        options: ["Through-hole", "Surface Mount"],
+                        value: "Through-hole"
+                    },
+                    package_size: {
+                        itemName: "Package Size",
+                        type: "Dropdown",
+                        options: ["0402", "0603", "0805", "1206"],
+                        value: "0402",
+                        isActive: ["package", "Surface Mount"],
                         unit: ""
                     }
                 }
             },
-            "Inductors" : {
+            inductor : {
+                itemName: "Inductors",
                 iconName: "inductor_icon.png",
                 filterOptions: {
-
-                },
-                entryOptions: {
-                    Location: {
-                        unit: "",
-                        type: "Text",
-                    },
-                    Value: {
+                    inductance: {
+                        itemName: "Inductance",
                         unit: "H",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    Tolerance: {
+                    tolerance: {
+                        itemName: "Tolerance",
                         unit: "%",
                         type: "Text"
                     },
-                    Power: {
+                    power: {
+                        itemName: "Power",
                         unit: "W",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Saturation Current": {
+                    saturation_current: {
+                        itemName: "Saturation Current",
                         unit: "A",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    package: {
+                        itemName: "Package",
+                        unit: "",
+                        type: "Radio",
+                        options: ["Through-hole", "Surface Mount"],
+                        value: "Through-hole"
+                    }
+                },
+                entryOptions: {
+                    location: {
+                        itemName: "Location",
+                        unit: "",
+                        type: "Text",
+                    },
+                    value: {
+                        itemName: "Inductance",
+                        unit: "H",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    tolerance: {
+                        itemName: "Tolerance",
+                        unit: "%",
                         type: "Text"
                     },
-                    "Package": {
+                    power: {
+                        itemName: "Power",
+                        unit: "W",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    saturation_current: {
+                        itemName: "Saturation Current",
+                        unit: "A",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    package: {
+                        itemName: "Package",
                         unit: "",
                         type: "Radio",
                         options: ["Through-hole", "Surface Mount"],
@@ -121,260 +251,557 @@ export default Module({
                     }
                 }
             },
-            "BJT's" : {
+            bjt : {
+                itemName: "BJT's",
                 iconName: "bjt_icon.png",
                 filterOptions: {
-
-                },
-                entryOptions: {
-                    Location: {
-                        unit: "",
-                        type: "Text",
-                    },
-                    "Part Number": {
+                    part_number: {
+                        itemName: "Part Number",
                         unit: "",
                         type: "Text"
                     },
-                    "Doping": {
+                    doping: {
+                        itemName: "Doping",
                         unit: "",
                         type: "Radio",
                         options: ["NPN", "PNP"],
                         value: "NPN"
                     },
-                    "Beta Value": {
+                    beta_value: {
+                        itemName: "Beta Value",
                         unit: "",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Max Ic": {
+                    max_ic: {
+                        itemName: "Max Ic",
                         unit: "A",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Max Vce": {
+                    max_vce: {
+                        itemName: "Max Vce",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Max Vbe": {
+                    max_vbe: {
+                        itemName: "Max Vbe",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Power": {
+                    power: {
+                        itemName: "Power",
                         unit: "W",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                }
-            },
-            "FET's" : {
-                iconName: "fet_icon.png",
-                filterOptions: {
-
                 },
                 entryOptions: {
-                    Location: {
+                    location: {
+                        itemName: "Location",
                         unit: "",
                         type: "Text",
                     },
-                    "Part Number": {
+                    part_number: {
+                        itemName: "Part Number",
                         unit: "",
                         type: "Text"
                     },
-                    "Doping": {
+                    doping: {
+                        itemName: "Doping",
+                        unit: "",
+                        type: "Radio",
+                        options: ["NPN", "PNP"],
+                        value: "NPN"
+                    },
+                    beta_value: {
+                        itemName: "Beta Value",
+                        unit: "",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_ic: {
+                        itemName: "Max Ic",
+                        unit: "A",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_vce: {
+                        itemName: "Max Vce",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_vbe: {
+                        itemName: "Max Vbe",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    power: {
+                        itemName: "Power",
+                        unit: "W",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                }
+            },
+            fet : {
+                itemName: "FET's",
+                iconName: "fet_icon.png",
+                filterOptions: {
+                    part_number: {
+                        itemName: "Part Number",
+                        unit: "",
+                        type: "Text"
+                    },
+                    doping: {
+                        itemName: "Doping",
                         unit: "",
                         type: "Radio",
                         options: ["N-Channel", "P-Channel"],
                         value: "N-Channel"
                     },
-                    "Gain": {
+                    gain: {
+                        itemName: "Gain",
                         unit: "",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Max Id": {
+                    max_id: {
+                        itemName: "Max Id",
                         unit: "A",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Max Vds": {
+                    max_vds: {
+                        itemName: "Max Vds",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Max Vgs": {
+                    max_vgs: {
+                        itemName: "Max Vgs",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Power": {
+                    power: {
+                        itemName: "Power",
                         unit: "W",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                }
-            },
-            "Op-Amps" : {
-                iconName: "amplifier_icon.png",
-                filterOptions: {
-
                 },
                 entryOptions: {
-                    Location: {
+                    location: {
+                        itemName: "Location",
                         unit: "",
                         type: "Text",
                     },
-                    "Part Number": {
+                    part_number: {
+                        itemName: "Part Number",
                         unit: "",
                         type: "Text"
                     },
-                    "Number In Package": {
+                    doping: {
+                        itemName: "Doping",
+                        unit: "",
+                        type: "Radio",
+                        options: ["N-Channel", "P-Channel"],
+                        value: "N-Channel"
+                    },
+                    gain: {
+                        itemName: "Gain",
+                        unit: "",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_id: {
+                        itemName: "Max Id",
+                        unit: "A",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_vds: {
+                        itemName: "Max Vds",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_vgs: {
+                        itemName: "Max Vgs",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    power: {
+                        itemName: "Power",
+                        unit: "W",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                }
+            },
+            opamp : {
+                itemName: "Op-Amps",
+                iconName: "amplifier_icon.png",
+                filterOptions: {
+                    part_number: {
+                        itemName: "Part Number",
                         unit: "",
                         type: "Text"
                     },
-                    "Gain-Bandwidth": {
+                    number_in_package: {
+                        itemName: "Number In Package",
+                        unit: "",
+                        type: "Text"
+                    },
+                    gain_bandwidth: {
+                        itemName: "Gain-Bandwidth",
                         unit: "Hz",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Slew Rate": {
+                    slew_rate: {
+                        itemName: "Slew Rate",
                         unit: "V/µs",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Package": {
+                    package: {
+                        itemName: "Package",
                         unit: "",
                         type: "Radio",
                         options: ["Dual-Sided", "Single-Sided"],
                         value: "Dual-Sided"
                     },
-                    "Max Output Current": {
+                    max_output_current: {
+                        itemName: "Max Output Current",
                         unit: "A",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_overhead: {
+                        itemName: "Max Overhead",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    common_mode: {
+                        itemName: "Common Mode",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                },
+                entryOptions: {
+                    location: {
+                        itemName: "Location",
+                        unit: "",
+                        type: "Text",
+                    },
+                    part_number: {
+                        itemName: "Part Number",
+                        unit: "",
                         type: "Text"
                     },
-                    "Max Overhead": {
-                        unit: "V",
+                    number_in_package: {
+                        itemName: "Number In Package",
+                        unit: "",
                         type: "Text"
                     },
-                    "Common Mode": {
+                    gain_bandwidth: {
+                        itemName: "Gain-Bandwidth",
+                        unit: "Hz",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    slew_rate: {
+                        itemName: "Slew Rate",
+                        unit: "V/µs",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    package: {
+                        itemName: "Package",
+                        unit: "",
+                        type: "Radio",
+                        options: ["Dual-Sided", "Single-Sided"],
+                        value: "Dual-Sided"
+                    },
+                    max_output_current: {
+                        itemName: "Max Output Current",
+                        unit: "A",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_overhead: {
+                        itemName: "Max Overhead",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    common_mode: {
+                        itemName: "Common Mode",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
                     },
                 }
             },
-            "Switches" : {
+            switch : {
+                itemName: "Switches",
                 iconName: "switch_icon.png",
                 filterOptions: {
-
-                },
-                entryOptions: {
-                    Location: {
+                    use: {
+                        itemName: "Function",
                         unit: "",
                         type: "Text",
                     },
-                    Function: {
-                        unit: "",
-                        type: "Text",
-                    },
-                    "Current Rating": {
+                    current_rating: {
+                        itemName: "Current Rating",
                         unit: "A",
                         type: "Text",
+                        canPrefix: true,
+                    },
+                },
+                entryOptions: {
+                    location: {
+                        itemName: "Location",
+                        unit: "",
+                        type: "Text",
+                    },
+                    use: {
+                        itemName: "Function",
+                        unit: "",
+                        type: "Text",
+                    },
+                    current_rating: {
+                        itemName: "Current Rating",
+                        unit: "A",
+                        type: "Text",
+                        canPrefix: true,
                     },
                 }
             },
-            "Diodes" : {
+            diode : {
+                itemName: "Diodes",
                 iconName: "diode_icon.png",
                 filterOptions: {
-
+                    part_number: {
+                        itemName: "Part Number",
+                        unit: "",
+                        type: "Text"
+                    },
+                    type: {
+                        itemName: "Type",
+                        unit: "",
+                        type: "Text"
+                    },
+                    forward_voltage_drop: {
+                        itemName: "Forward Voltage Drop",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    breakdown_voltage: {
+                        itemName: "Breakdown Voltage",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    max_current: {
+                        itemName: "Max Current",
+                        unit: "A",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    power: {
+                        itemName: "Power",
+                        unit: "W",
+                        type: "Text",
+                        canPrefix: true,
+                    }
                 },
                 entryOptions: {
-                    Location: {
+                    location: {
+                        itemName: "Location",
                         unit: "",
                         type: "Text",
                     },
-                    "Part Number": {
+                    part_number: {
+                        itemName: "Part Number",
                         unit: "",
                         type: "Text"
                     },
-                    "Type": {
+                    type: {
+                        itemName: "Type",
                         unit: "",
                         type: "Text"
                     },
-                    "Forward Voltage Drop": {
+                    forward_voltage_drop: {
+                        itemName: "Forward Voltage Drop",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Breakdown Voltage": {
+                    breakdown_voltage: {
+                        itemName: "Breakdown Voltage",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Max Current": {
+                    max_current: {
+                        itemName: "Max Current",
                         unit: "A",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Power": {
+                    power: {
+                        itemName: "Power",
                         unit: "W",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     }
                 }
             },
-            "Integrated Circuits" : {
+            intcirc : {
+                itemName: "Integrated Circuits",
                 iconName: "ic_icon.png",
                 filterOptions: {
-
+                    part_number: {
+                        itemName: "Part Number",
+                        unit: "",
+                        type: "Text"
+                    },
+                    category: {
+                        itemName: "Category",
+                        unit: "",
+                        type: "Text"
+                    },
+                    voltage: {
+                        itemName: "Voltage",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
                 },
                 entryOptions: {
-                    Location: {
+                    location: {
+                        itemName: "Location",
                         unit: "",
                         type: "Text",
                     },
-                    "Part Number": {
+                    part_number: {
+                        itemName: "Part Number",
                         unit: "",
                         type: "Text"
                     },
-                    "Category": {
+                    category: {
+                        itemName: "Category",
                         unit: "",
                         type: "Text"
                     },
-                    "Voltage": {
+                    voltage: {
+                        itemName: "Voltage",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
                 }
             },
-            "Linear Regulators" : {
+            linreg : {
+                itemName: "Linear Regulators",
                 iconName: "regulator_icon.png",
                 filterOptions: {
-
-                },
-                entryOptions: {
-                    Location: {
-                        unit: "",
-                        type: "Text",
-                    },
-                    "Part Number": {
+                    part_number: {
+                        itemName: "Part Number",
                         unit: "",
                         type: "Text"
                     },
-                    "Category": {
+                    category: {
+                        itemName: "Category",
                         unit: "",
                         type: "Radio",
                         options: ["Fixed", "Adjustable"],
                         value: "Fixed"
                     },
-                    "Max Vout": {
+                    max_vout: {
+                        itemName: "Max Vout",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Dropout": {
+                    dropout: {
+                        itemName: "Dropout",
                         unit: "V",
-                        type: "Text"
+                        type: "Text",
+                        canPrefix: true,
                     },
-                    "Power": {
+                    power: {
+                        itemName: "Power",
                         unit: "W",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                },
+                entryOptions: {
+                    location: {
+                        itemName: "Location",
+                        unit: "",
+                        type: "Text",
+                    },
+                    part_number: {
+                        itemName: "Part Number",
+                        unit: "",
                         type: "Text"
+                    },
+                    category: {
+                        itemName: "Category",
+                        unit: "",
+                        type: "Radio",
+                        options: ["Fixed", "Adjustable"],
+                        value: "Fixed"
+                    },
+                    max_vout: {
+                        itemName: "Max Vout",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    dropout: {
+                        itemName: "Dropout",
+                        unit: "V",
+                        type: "Text",
+                        canPrefix: true,
+                    },
+                    power: {
+                        itemName: "Power",
+                        unit: "W",
+                        type: "Text",
+                        canPrefix: true,
                     },
                 }
             },
         },
-        currentPage: "Front"
+        currentPage: "Entry",
+        getData: {
+
+        }
     },
     signals: {
         menuSelectionChanged: sequences.changeMenuSelection,
         clearMenuSelection: sequences.clearMenuSelection,
         changeEntryValue: sequences.changeEntryValue,
+        changeFilterValue: sequences.changeFilterValue,
         submitEntry: sequences.submitEntry,
         menuButtonPressed: sequences.activateMenu,
-        pageChangeClicked: sequences.changePage
+        pageChangeClicked: sequences.changePage,
+        toggleFilter: sequences.toggleFilter,
+        deleteEntry: sequences.deleteEntry
     },
     providers: {
             test: {

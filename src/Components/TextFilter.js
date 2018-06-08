@@ -8,13 +8,14 @@ import {props, state, signal } from "cerebral/tags";
 
 export default connect(
     {
-        changeEntryValue: signal`changeEntryValue`,
+        changeFilterValue: signal`changeFilterValue`,
         myObject: state`menuItems.${state`componentSelection.0`}.entryOptions.${props`entryName`}`,
         name: props`entryName`,
         unit: props`unit`,
         showName: props`showName`
     },
-    function App({ myObject, name, unit, changeEntryValue, showName}) {
+    function App({ myObject, name, unit, changeFilterValue, showName}) {
+
         return (
             <div className="field">
                 <div className="field-label is-normal">
@@ -26,12 +27,23 @@ export default connect(
                 </div>
                 <div className="field-body has-addons">
                     <div className="field">
+                        {myObject["canRange"] &&
+                        <div className="field has-addons">
+                            <p className="control has-addons">
+                                <a className={myObject["isRange"] ? "button is-dark" :"button is-dark is-outlined"}>
+                                    Specific
+                                </a>
+                                <a className={!myObject["isRange"] ? "button is-dark" :"button is-dark is-outlined"}>
+                                    Ranged
+                                </a>
+                            </p>
+                        </div>}
                         <div className="control has-icons-right">
                             <input className="input" placeholder="No Value"
-                               onChange={(e) => changeEntryValue({
-                                   newValue: e.target.value,
-                                   entryName: name
-                               })}/>
+                                   onChange={(e) => changeFilterValue({
+                                       newValue: e.target.value,
+                                       entryName: name
+                                   })}/>
                             <span className="icon is-small is-right">
                                 {unit}
                             </span>

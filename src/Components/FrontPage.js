@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from '@cerebral/react'
 import { state, signal } from "cerebral/tags";
-import MenuItem from './MenuItem';
 import SearchArea from './SearchArea'
 import fontawesome from '@fortawesome/fontawesome';
 import {clearMenuSelection} from "../app/sequences";
@@ -11,11 +10,12 @@ import "../../node_modules/bulma/css/bulma.css"
 export default connect(
     {
         menuItems: state`menuItems`,
+        changePage: signal`pageChangeClicked`,
+        changeSelection: signal`menuSelectionChanged`
     },
-    function App({menuItems}) {
+    function App({menuItems, changePage, changeSelection}) {
         var newMenu = Object.keys(menuItems);
         return (
-            <body>
                 <main>
                     <section className="hero is-dark is-small">
                         <div className="hero-head has-text-centered">
@@ -40,11 +40,16 @@ export default connect(
                     </section>
                     <div className="columns is-centered is-multiline is-mobile is-marginless" >
                     {newMenu.map((x) =>
-                        <div className="column is-3" id="front-page-column">
-                            <article className="message is-dark is-shady is-bold">
+                        <div className="column is-3 front-page-column">
+                            <a>
+                            <article className="message is-dark is-shady is-bold"
+                                onClick={() => {
+                                    changeSelection({menuSelection: [x]})
+                                    changePage({newPage: "Table"})
+                                }}>
                                 <div className="message-header">
                                     <div className="container has-text-centered">
-                                    <p className="title is-6 has-text-white">{x}</p>
+                                    <p className="title is-6 has-text-white">{menuItems[x].itemName}</p>
                                     </div>
                                 </div>
                                 <div className="message-body is-small">
@@ -54,11 +59,11 @@ export default connect(
                                     </figure>
                                 </div>
                             </article>
+                            </a>
                         </div>
                     )}
                     </div>
                 </main>
-            </body>
 
         )
     },

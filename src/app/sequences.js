@@ -17,23 +17,39 @@ export const changeMenuSelection = [
         newSelection.length < oldSelection.length && helpers.compareArray(newSelection.slice(0, oldSelection.length), oldSelection)), {
             true: [],
             false: set(state`componentSelection`, props`menuSelection`),
-    }
+    },
+    actions.getData
+];
+
+export const deleteEntry =[
+    actions.deleteEntry,
+    unset(state`getData.${props`stateID`}`, {})
 ];
 
 export const changePage = [
-    set(state`currentPage`, props`newPage`)
+    set(state`currentPage`, props`newPage`),
 ];
+
+
+export const toggleFilter = [
+    toggle(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`filterName`}.showBody`)
+]
 
 export const activateMenu = [
     toggle(state`menuIsActive`)
 ]
 
 export const submitEntry = [
-    actions.submitEntry
+    actions.submitEntry,
+    actions.getData
 ]
 
+export const changeFilterValue = [
+    set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.value`, props`newValue`)
+];
+
 export const changeEntryValue = [
-  set(state`menuItems.${props`componentName`}.entryOptions.${props`entryName`}.value`, props`newValue`)
+    set(state`menuItems.${state`componentSelection.0`}.entryOptions.${props`entryName`}.value`, props`newValue`)
 ];
 
 export const clearMenuSelection = [
