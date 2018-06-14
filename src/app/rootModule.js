@@ -1,5 +1,6 @@
 import { Module } from 'cerebral'
 import * as sequences from './sequences'
+import itemIsActive from '../computed/itemIsActive'
 
 export default Module({
     state: {
@@ -10,14 +11,15 @@ export default Module({
                 itemName: "Resistors",
                 iconName: "resistor_icon.png",
                 filterOptions: {
-                    resistance: {
+                    value: {
                         itemName: "Resistance",
                         unit: "Ω",
                         type: "Text",
-                        canRange: false,
+                        canRange: true,
                         isRange: false,
-                        value: "No Value",
                         canPrefix: true,
+                        min: "",
+                        max: ""
                     },
                     tolerance: {
                         itemName: "Tolerance",
@@ -35,7 +37,6 @@ export default Module({
                         unit: "",
                         type: "Radio",
                         options: ["Through-hole", "Surface Mount"],
-                        value: "Through-hole"
                     },
                     package_size: {
                         itemName: "Package Size",
@@ -91,7 +92,7 @@ export default Module({
                 itemName: "Capacitors",
                 iconName: "capacitor_icon.png",
                 filterOptions: {
-                    capacitance: {
+                    value: {
                         itemName: "Capacitance",
                         unit: "F",
                         type: "Text",
@@ -119,8 +120,7 @@ export default Module({
                         itemName: "Package",
                         unit: "",
                         type: "Radio",
-                        options: ["Through-hole", "Surface Mount"],
-                        value: "Through-hole"
+                        options: ["Through-hole", "Surface Mount"]
                     },
                     package_size: {
                         itemName: "Package Size",
@@ -182,7 +182,7 @@ export default Module({
                 itemName: "Inductors",
                 iconName: "inductor_icon.png",
                 filterOptions: {
-                    inductance: {
+                    value: {
                         itemName: "Inductance",
                         unit: "H",
                         type: "Text",
@@ -790,6 +790,10 @@ export default Module({
         currentPage: "Entry",
         getData: {
 
+        },
+        tableSortOptions: {
+            value: "",
+            sortDescending: false,
         }
     },
     signals: {
@@ -801,7 +805,8 @@ export default Module({
         menuButtonPressed: sequences.activateMenu,
         pageChangeClicked: sequences.changePage,
         toggleFilter: sequences.toggleFilter,
-        deleteEntry: sequences.deleteEntry
+        deleteEntry: sequences.deleteEntry,
+        sortTable: sequences.sortTable
     },
     providers: {
             test: {

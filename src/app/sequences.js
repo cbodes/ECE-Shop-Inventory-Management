@@ -3,16 +3,18 @@ import { set, toggle, unset, when } from 'cerebral/operators'
 import { props, state } from 'cerebral/tags'
 import * as actions from './actions'
 import * as helpers from '../helpers'
-import {addSelection} from "./actions";
 
-/*export const changeMenuSelection = [
-    when(state`componentSelection`, props`componentName`, (newSelection, oldSelection) => newSelection === oldSelection), {
-        true: [set(state`componentSelection`, props`componentName`)],
-        false: [set(state`componentSelection`, props`componentName`), set(state`subComponentSelection`, [])],
-    }
-];*/
+
+export const sortTable = [
+    when(props`headerName`, state`tableSortOptions.value`, (newValue, oldValue) => newValue === oldValue), {
+        true: toggle(state`tableSortOptions.sortDescending`),
+        false: set(state`tableSortOptions.sortDescending`, true)
+    },
+    set(state`tableSortOptions.value`, props`headerName`),
+];
 
 export const changeMenuSelection = [
+    actions.clearEntries,
     when(state`componentSelection`, props`menuSelection`, (oldSelection, newSelection) =>
         newSelection.length < oldSelection.length && helpers.compareArray(newSelection.slice(0, oldSelection.length), oldSelection)), {
             true: [],
@@ -45,7 +47,19 @@ export const submitEntry = [
 ]
 
 export const changeFilterValue = [
-    set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.value`, props`newValue`)
+    when(props`newValue`, (newValue) => !newValue), {
+        true: set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.filterIsSet`, false),
+        false: set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.filterIsSet`, true)
+    },
+    when(props`field`, (subField) => subField !== undefined), {
+        true: [set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.${props`field`}`, props`newValue`),
+            set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.isRange`, true),
+            set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.value`, ""),],
+        false: [set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.value`, props`newValue`),
+            set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.isRange`, false),
+            set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.min`, ""),
+            set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.max`, ""),]
+    }
 ];
 
 export const changeEntryValue = [

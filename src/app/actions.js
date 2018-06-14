@@ -1,6 +1,42 @@
 import React from 'react'
 
-const serverPath = 'https://128.46.74.195:8443';
+let serverPath = 'https://128.46.74.195:3000';
+
+if (process.env.PORT) {
+    serverPath = 'https://128.46.74.195:' + process.env.PORT;
+}
+
+export function sortTable({state, props}) {
+    let ordered = {};
+    const myTable = state.get(`getData`);
+
+    let orderedArray = Object.keys(myTable).sort((function(a, b) {
+        return parseFloat(myTable[a][props.headerName]) > parseFloat(myTable[b][props.headerName]) ? 1 :
+            parseFloat(myTable[a][props.headerName]) < parseFloat(myTable[b][props.headerName]) ? -1: 0;
+    }));
+
+    for (let item in orderedArray) {
+        ordered[item] = myTable[orderedArray[item]];
+    }
+
+    state.set(`getData`, ordered)
+}
+
+export function clearEntries ({state}) {
+    const currComp = state.get(`componentSelection.0`);
+    const entries = state.get(`menuItems`);
+    for (let item in entries[currComp].filterOptions) {
+        state.set(`menuItems.${currComp}.filterOptions.${item}.value`, "")
+        state.set(`menuItems.${currComp}.filterOptions.${item}.min`, "")
+        state.set(`menuItems.${currComp}.filterOptions.${item}.max`, "")
+        state.set(`menuItems.${currComp}.filterOptions.${item}.filterIsSet`, false)
+        state.set(`menuItems.${currComp}.filterOptions.${item}.showBody`, false)
+    }
+    for (let item in entries[currComp].entryOptions) {
+        state.set(`menuItems.${currComp}.entryOptions.${item}.value`, "")
+        state.set(`menuItems.${currComp}.entryOptions.${item}.filterIsSet`, false)
+    }
+}
 
 export function addSelection ({state, props}) {
     //state.get(`subComponentSelection`).push(state.get(`newComponentSelection`))
@@ -33,6 +69,11 @@ export function deleteEntry ({state, props}) {
         .catch(error => console.error('Error:'))
         .then(response => {
             confirmationResponse = response;
+            if (confirmationResponse.confirmation === "Fail") {
+                state.set(`requestError`, confirmationResponse.errReturned)
+            } else {
+                state.set(`requestError`, {})
+            }
         })
 }
 
@@ -54,17 +95,21 @@ export function submitEntry ({state}) {
         },
     })
     .then(response => response.json())
-        .catch( )
+        .catch()
     .then(response => {
         confirmationResponse = response;
-        console.log(confirmationResponse);
+        if (confirmationResponse.confirmation === "Fail") {
+            state.set(`requestError`, confirmationResponse.errReturned)
+        } else {
+            state.set(`requestError`, {})
+        }
     })
 }
 
 export function getData ({state}) {
     const currComp = state.get(`componentSelection`)[0];
     const stateObj = state.get(`menuItems.${currComp}.entryOptions`);
-
+    const filters = state.get(`menuItems.${currComp}.filterOptions`);
 
     let data;
     fetch(serverPath + '/api/' + currComp.toLowerCase(), {
@@ -74,17 +119,40 @@ export function getData ({state}) {
             'Content-Type': 'application/json'
         },
     })
-
         .then(response => response.json())
         .catch(error => console.error('Error:'))
         .then(getResults => {
-            if (data === undefined) {
+            if (getResults && getResults.confirmation === "Fail") {
+                console.log(getResults)
+                state.set(`filterError`, getResults.errReturned)
+            } else {
+                state.set(`filterError`, {})
+            }
+            if (getResults === undefined || getResults.results === undefined) {
+                state.set(`getData`, {});
                 return;
             }
             data = getResults.results;
-            data = adjustForPrefix(data, stateObj);
+            //data = adjustForPrefix(data, stateObj);
             state.set(`getData`, data);
         })
+}
+
+function createRequestPath(filterObj) {
+    let requestString = "?";
+    let item;
+
+    for (item in filterObj) {
+        if (filterObj[item].isActive) {
+            if (filterObj[(filterObj[item].isActive)[0]].value === filterObj[item].isActive[1]) {
+                requestString += item + "=" + filterObj[item].value + "&";
+            }
+        } else if (filterObj[item].filterIsSet) {
+            requestString += item + "=" + filterObj[item].value + "&";
+        }
+    }
+
+    return requestString;
 }
 
 function adjustForPrefix(myData, stateObj) {
@@ -105,7 +173,7 @@ function adjustForPrefix(myData, stateObj) {
         for (item in myData[row]) {
             if (myData[row][item] && stateObj[item] && stateObj[item].canPrefix) {
                 for (key in conversionTree) {
-                    newValue = myData[row][item] / Math.pow(10, parseInt(key));
+                    newValue = myData[row][item] / Math.pow(10, parseFloat(key));
                     if (newValue >= 1 && newValue <= 999) {
                         myData[row][item] = newValue.toString() + conversionTree[key];
                         break;
@@ -116,7 +184,6 @@ function adjustForPrefix(myData, stateObj) {
     }
     return myData;
 }
-
 
 function buildEntryJSON (entryObject) {
     const conversionTree = {
@@ -142,13 +209,13 @@ function buildEntryJSON (entryObject) {
     for (var key in entryObject) {
         if (entryObject[key].value) {
             let curValue = entryObject[key].value;
-            const valLength = entryObject[key].value.length;
+            /*const valLength = entryObject[key].value.length;
             const conversionCode = entryObject[key].value.substr(valLength - 1);
 
             if (conversionCode in conversionTree && entryObject[key].canPrefix) {
                 let oldNum = (entryObject[key].value).slice(0, -1);
-                curValue = parseInt(oldNum.toString()) * Math.pow(10, conversionTree[conversionCode])
-            }
+                curValue = parseFloat(oldNum.toString()) * Math.pow(10, conversionTree[conversionCode])
+            }*/
 
             if (entryObject[key].isActive) {
                 if (entryObject[(entryObject[key].isActive)[0]].value === entryObject[key].isActive[1]) {

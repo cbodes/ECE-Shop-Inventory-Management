@@ -12,9 +12,10 @@ export default connect(
         myObject: state`menuItems.${state`componentSelection.0`}.entryOptions.${props`entryName`}`,
         name: props`entryName`,
         unit: props`unit`,
-        showName: props`showName`
+        showName: props`showName`,
+        myError: state`requestError.${props`entryName`}`
     },
-    function App({ myObject, name, unit, changeEntryValue, showName}) {
+    function App({ myObject, name, unit, changeEntryValue, showName, myError}) {
         return (
             <div className="field">
                 <div className="field-label is-normal">
@@ -28,6 +29,7 @@ export default connect(
                     <div className="field">
                         <div className="control has-icons-right">
                             <input className="input" placeholder="No Value"
+                               value={myObject.value}
                                onChange={(e) => changeEntryValue({
                                    newValue: e.target.value,
                                    entryName: name
@@ -36,6 +38,9 @@ export default connect(
                                 {unit}
                             </span>
                         </div>
+                        {myError &&
+                            <p className="help is-danger">{myError.message}</p>
+                        }
                     </div>
                 </div>
             </div>

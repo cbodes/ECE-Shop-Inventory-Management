@@ -7,6 +7,6 @@ const controller = Controller(app, {
     devtools: Devtools({ host: 'localhost:8686' })
 })
 
-controller.runSignal('getInitial', [actions.getData], {});
+controller.runSignal('getInitial', [actions.clearEntries, actions.getData], {});
 
 export default controller

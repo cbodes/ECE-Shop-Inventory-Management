@@ -2,6 +2,7 @@
   "name": "untitled",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://eceil.github.io/eceshop/",
   "dependencies": {
     "@cerebral/react": "^3.2.2",
     "@fortawesome/fontawesome": "^1.1.8",
@@ -15,12 +16,15 @@
     "react-rangeslider": "^2.2.0",
     "react-scripts": "1.1.4",
     "reactrangeslider": "^3.0.6",
-    "underscore": "^1.9.0"
+    "underscore": "^1.9.0",
+    "homepage": "https://eceil.github.io/eceshop/"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-production": "PORT=80 react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "homepage": "https://eceil.github.io/eceshop/"
   }
 }

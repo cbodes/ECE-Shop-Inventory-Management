@@ -49,18 +49,16 @@ export default connect(
                                                activateMenu()
                                                changeSelection({menuSelection: [x]})
                                            }}>
-                                            <p className={currentComponent[0] === x ? "is-active" : ""}>
-                                                {/*<span className={currentComponent[0] === x ? "icon invert-filter" : "icon"}>
+                                                {<span className={currentComponent[0] === x ? "icon invert-filter" : "icon"}>
                                             <img className="icon"
                                                  src={require("../images/" + menuItems[x].iconName)}>
                                             </img>
-                                        </span>*/}
+                                        </span>}
                                                 <span className=
                                                           {currentComponent[0] === x ?
                                                               "subtitle is-6 has-text-white" :
                                                               "subtitle is-6"}>
                                             {menuItems[x].itemName}</span>
-                                            </p>
                                         </a>
                                     )}
                                 </div>
