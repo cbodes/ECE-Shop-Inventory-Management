@@ -2,9 +2,9 @@ import React from 'react'
 
 let serverPath = 'https://128.46.74.195:3000';
 
-if (process.env.PORT) {
+/*if (process.env.PORT) {
     serverPath = 'https://128.46.74.195:' + process.env.PORT;
-}
+}*/
 
 export function sortTable({state, props}) {
     let ordered = {};
