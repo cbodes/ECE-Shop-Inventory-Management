@@ -26,7 +26,7 @@ export default connect(
                         {Object.keys(menuItems).map(x =>
                         <div className="column" id="table-page-column">
                             <article className="message is-dark">
-                                <div className="message-header"
+                                <div className="message-header has-hovershade is-clickable"
                                      onClick={() =>
                                          toggleFilter({
                                              filterName: x
@@ -78,7 +78,7 @@ export default connect(
                 <div className="section">
                     <div className="columns is-centered">
                         <div className="column is-narrow has-text-centered">
-                            <ComponentTable/>
+                            <ComponentTable hasDelete={false}/>
                         </div>
                     </div>
                 </div>

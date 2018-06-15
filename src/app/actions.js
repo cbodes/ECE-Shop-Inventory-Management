@@ -1,10 +1,20 @@
 import React from 'react'
 
-let serverPath = 'https://128.46.74.195:3000';
+let serverPath = 'https://128.46.74.195:4000';
 
 /*if (process.env.PORT) {
     serverPath = 'https://128.46.74.195:' + process.env.PORT;
 }*/
+
+export function modifyEntry({state, props}) {
+    const currComp = state.get(`componentSelection.0`);
+    const myEntry = state.get(`getData.${props.stateID}`);
+    const entryOptions = state.get(`menuItems.${currComp}.entryOptions`);
+
+    for (let key in entryOptions) {
+        state.set(`menuItems.${currComp}.entryOptions.${key}.value`, myEntry[key])
+    }
+}
 
 export function sortTable({state, props}) {
     let ordered = {};
@@ -78,16 +88,23 @@ export function deleteEntry ({state, props}) {
 }
 
 export function submitEntry ({state}) {
+    const modifyEntry = state.get(`modifyEntry`);
 
     const componentName = state.get(`componentSelection`)[0];
+
     const stateObj = state.get(`menuItems.${componentName}.entryOptions`);
+
+    const method = modifyEntry ? "PUT" : "POST";
+
+    const path = modifyEntry ? serverPath + '/api/' + componentName + "/" + modifyEntry.serverID:
+        serverPath + '/api/' + componentName
 
     let confirmationResponse;
 
     const objToSend = buildEntryJSON(stateObj);
 
-    const promise = fetch(serverPath + '/api/' + componentName, {
-        method: 'POST',
+    const promise = fetch(path, {
+        method: method,
         body: JSON.stringify(objToSend),
         mode: 'cors',
         headers: {

@@ -1,7 +1,6 @@
 import { Compute } from 'cerebral'
 import { state } from 'cerebral/tags'
 
-
 export default  Compute(state`getData`, state`tableSortOptions`, (data, sortType) => {
         if (!sortType) {
             return Object.keys(data);

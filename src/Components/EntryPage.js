@@ -6,14 +6,16 @@ import RadioEntry from './RadioEntry'
 import TextEntry from './TextEntry';
 import EntryNavBar from './entryNavBar';
 
-import EntryTable from './EntryTable';
+import ComponentTable from './ComponentTable';
 
 export default connect(
     {
         submitEntry: signal`submitEntry`,
+        cancelEntry: signal`cancelEntry`,
+        modifyOptions: state`modifyEntry`,
         entryObject: state`menuItems.${state`componentSelection.0`}`,
     },
-    function App({entryObject, submitEntry}) {
+    function App({entryObject, cancelEntry, modifyOptions, submitEntry}) {
         return (
 
             <main>
@@ -22,7 +24,7 @@ export default connect(
                     <div className="level-item">
                         <div className="notification has-backshadow" id="entryFormWrapper">
                             <p className="title is-3 has-text-centered">
-                                {entryObject.itemName}
+                                {modifyOptions ? entryObject.itemName + " (modify)" : entryObject.itemName}
                             </p>
                             {Object.keys(entryObject["entryOptions"]).map(rows =>
                                 (entryObject["entryOptions"][rows]["type"] === "Text") ?
@@ -50,14 +52,18 @@ export default connect(
                                     /> : null
                             )}
                             <div className="buttons is-centered">
-                                <a className="button is-danger">Clear</a>
+                                <a className="button is-danger"
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    cancelEntry()
+                                }}>{modifyOptions ? "Cancel" : "Clear"}</a>
+
                                 <a className="button is-success"
                                    onClick={(e) => {
                                        e.preventDefault()
                                        submitEntry()
-                                   }
-                                   }
-                                >Submit</a>
+                                   }}
+                                >{modifyOptions ? "Save Changes": "Submit"}</a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +71,7 @@ export default connect(
                 <div className="section">
                     <div className="columns is-centered">
                         <div className="column is-narrow has-text-centered">
-                            <EntryTable/>
+                            <ComponentTable hasDelete={true}/>
                         </div>
                     </div>
                 </div>

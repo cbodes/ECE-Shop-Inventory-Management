@@ -2,9 +2,15 @@ import { Compute } from 'cerebral'
 import { state } from 'cerebral/tags'
 
 
-export default  Compute(state`getData`, state`menuItems.${state`componentSelection.0`}.filterOptions`, (data, filters) => {
+export default Compute(state`tableSortOptions`,
+    state`getData`, state`menuItems.${state`componentSelection.0`}.filterOptions`,
+    (sortType, data, filters) => {
+
+
+
     let viewData = Object.keys(data);
     let filt;
+    let orderedArray;
 
 
     for (filt in filters) {
@@ -25,14 +31,32 @@ export default  Compute(state`getData`, state`menuItems.${state`componentSelecti
             } else {
                 const filtVal = convertFromPrefix(filters[filt].value);
                 viewData = viewData.filter(item => {
-                    const myItem = data[item][filt].toString();
-                    return myItem === filtVal.toString();
+                    const myItem = data[item][filt].toString().toLowerCase();
+                    return myItem === filtVal.toString().toLowerCase();
                 });
             }
         }
     }
 
-    return viewData;
+
+    if (!sortType) {
+        return viewData;
+    }
+
+    if (!sortType.sortDescending) {
+        orderedArray = viewData.sort((function (a, b) {
+            return parseFloat(data[a][sortType.value]) > parseFloat(data[b][sortType.value]) ? 1 :
+                parseFloat(data[a][sortType.value]) < parseFloat(data[b][sortType.value]) ? -1 : 0;
+        }));
+    } else {
+        orderedArray = viewData.sort((function (a, b) {
+            return parseFloat(data[a][sortType.value]) > parseFloat(data[b][sortType.value]) ? -1 :
+                parseFloat(data[a][sortType.value]) < parseFloat(data[b][sortType.value]) ? 1 : 0;
+        }));
+    }
+
+    return orderedArray;
+
 })
 
 function convertFromPrefix (valStr) {

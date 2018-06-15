@@ -1,5 +1,5 @@
 
-import { set, toggle, unset, when } from 'cerebral/operators'
+import { set, toggle, unset, when, merge } from 'cerebral/operators'
 import { props, state } from 'cerebral/tags'
 import * as actions from './actions'
 import * as helpers from '../helpers'
@@ -23,10 +23,24 @@ export const changeMenuSelection = [
     actions.getData
 ];
 
+export const cancelEntry = [
+    unset(state`modifyEntry`),
+    actions.clearEntries
+];
+
+export const modifyEntry =[
+    actions.modifyEntry,
+    merge(state`modifyEntry`, {
+        serverID: props`idToDelete`,
+        stateID: props`stateID`,
+    })
+];
+
 export const deleteEntry =[
     actions.deleteEntry,
     unset(state`getData.${props`stateID`}`, {})
 ];
+
 
 export const changePage = [
     set(state`currentPage`, props`newPage`),

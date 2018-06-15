@@ -806,7 +806,9 @@ export default Module({
         pageChangeClicked: sequences.changePage,
         toggleFilter: sequences.toggleFilter,
         deleteEntry: sequences.deleteEntry,
-        sortTable: sequences.sortTable
+        sortTable: sequences.sortTable,
+        modifyEntry: sequences.modifyEntry,
+        cancelEntry: sequences.cancelEntry
     },
     providers: {
             test: {

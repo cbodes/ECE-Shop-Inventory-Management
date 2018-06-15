@@ -32,7 +32,7 @@ export default connect(
                             {myObject["options"] != undefined && myObject["options"].map(x =>
                             <p className="control">
                                 <a className={!active ? "button is-dark is-static" :
-                                    myObject["value"] === x && active ?
+                                    myObject["value"].toLowerCase() === x.toLowerCase() && active ?
                                     "button is-dark" : "button is-dark is-outlined"}
                                     onClick={(e) => {
                                         e.preventDefault()
