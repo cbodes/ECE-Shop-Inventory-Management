@@ -30,7 +30,7 @@ export default connect(
                     <div className="field-body has-addons">
                         <div className="field">
                             <div className="control has-icons-right">
-                                <input className="input" placeholder="No Value"
+                                <input className="input is-small" placeholder="No Value"
                                        value={myObject.value}
                                        onChange={(e) => changeFilterValue({
                                            newValue: e.target.value,
@@ -56,7 +56,7 @@ export default connect(
                     <div className="field-body has-addons">
                         <div className="field">
                             <div className="control has-icons-right">
-                                <input className="input" placeholder="Min"
+                                <input className="input is-small" placeholder="Min"
                                        value={myObject.min}
                                        onChange={(e) => changeFilterValue({
                                            newValue: e.target.value,
@@ -70,7 +70,7 @@ export default connect(
                         </div>
                         <div className="field">
                             <div className="control has-icons-right">
-                                <input className="input" placeholder="Max"
+                                <input className="input is-small" placeholder="Max"
                                        value={myObject.max}
                                        onChange={(e) => changeFilterValue({
                                            newValue: e.target.value,

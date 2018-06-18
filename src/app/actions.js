@@ -6,6 +6,35 @@ let serverPath = 'https://128.46.74.195:4000';
     serverPath = 'https://128.46.74.195:' + process.env.PORT;
 }*/
 
+export function submitLogin({state, props}) {
+    const loginInfo = state.get(`loginStatus`);
+
+
+    let data;
+    fetch(serverPath + '/api/user?username=' + loginInfo.user + "&password=" + loginInfo.password, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .catch(error => console.error('Error:'))
+        .then(getResults => {
+            if (getResults && getResults.confirmation === "Fail") {
+                alert("Login Failed")
+            } else {
+            }
+            if (getResults === undefined || getResults.results === undefined) {
+                return;
+            }
+            //data = getResults.results;
+            //data = adjustForPrefix(data, stateObj);
+            state.set(`loginStatus.loginValid`, true);
+            state.set(`loginStatus.token`, getResults.results);
+        })
+}
+
 export function modifyEntry({state, props}) {
     const currComp = state.get(`componentSelection.0`);
     const myEntry = state.get(`getData.${props.stateID}`);
@@ -16,21 +45,6 @@ export function modifyEntry({state, props}) {
     }
 }
 
-export function sortTable({state, props}) {
-    let ordered = {};
-    const myTable = state.get(`getData`);
-
-    let orderedArray = Object.keys(myTable).sort((function(a, b) {
-        return parseFloat(myTable[a][props.headerName]) > parseFloat(myTable[b][props.headerName]) ? 1 :
-            parseFloat(myTable[a][props.headerName]) < parseFloat(myTable[b][props.headerName]) ? -1: 0;
-    }));
-
-    for (let item in orderedArray) {
-        ordered[item] = myTable[orderedArray[item]];
-    }
-
-    state.set(`getData`, ordered)
-}
 
 export function clearEntries ({state}) {
     const currComp = state.get(`componentSelection.0`);
@@ -61,6 +75,7 @@ export function addSelection ({state, props}) {
 
 export function deleteEntry ({state, props}) {
     const currComp = state.get(`componentSelection`)[0];
+    const myToken = state.get(`loginStatus.token`);
     let data;
     let confirmationResponse;
 
@@ -72,7 +87,8 @@ export function deleteEntry ({state, props}) {
         method: 'DELETE',
         mode: 'cors',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'mytoken': myToken
         },
     })
         .then(response => response.json())
@@ -80,7 +96,9 @@ export function deleteEntry ({state, props}) {
         .then(response => {
             confirmationResponse = response;
             if (confirmationResponse.confirmation === "Fail") {
-                state.set(`requestError`, confirmationResponse.errReturned)
+                if (confirmationResponse.errReturned) {
+                    state.set(`requestError`, confirmationResponse.errReturned)
+                }
             } else {
                 state.set(`requestError`, {})
             }
@@ -88,6 +106,8 @@ export function deleteEntry ({state, props}) {
 }
 
 export function submitEntry ({state}) {
+    const myToken = state.get(`loginStatus.token`);
+
     const modifyEntry = state.get(`modifyEntry`);
 
     const componentName = state.get(`componentSelection`)[0];
@@ -109,6 +129,7 @@ export function submitEntry ({state}) {
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
+            'mytoken': myToken
         },
     })
     .then(response => response.json())
@@ -116,7 +137,9 @@ export function submitEntry ({state}) {
     .then(response => {
         confirmationResponse = response;
         if (confirmationResponse.confirmation === "Fail") {
-            state.set(`requestError`, confirmationResponse.errReturned)
+            if (confirmationResponse.errReturned) {
+                state.set(`requestError`, confirmationResponse.errReturned)
+            }
         } else {
             state.set(`requestError`, {})
         }
@@ -125,8 +148,6 @@ export function submitEntry ({state}) {
 
 export function getData ({state}) {
     const currComp = state.get(`componentSelection`)[0];
-    const stateObj = state.get(`menuItems.${currComp}.entryOptions`);
-    const filters = state.get(`menuItems.${currComp}.filterOptions`);
 
     let data;
     fetch(serverPath + '/api/' + currComp.toLowerCase(), {
@@ -153,6 +174,7 @@ export function getData ({state}) {
             //data = adjustForPrefix(data, stateObj);
             state.set(`getData`, data);
         })
+
 }
 
 function createRequestPath(filterObj) {

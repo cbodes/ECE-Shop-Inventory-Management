@@ -25,13 +25,13 @@ export default Compute(state`tableSortOptions`,
                     maxVal = Infinity;
                 }
                 viewData = viewData.filter(item => {
-                    const myItem = parseFloat(data[item][filt]);
+                    const myItem = parseFloat(data[item][filt].value);
                     return (myItem <= parseFloat(maxVal) && myItem >= parseFloat(minVal));
                 });
             } else {
                 const filtVal = convertFromPrefix(filters[filt].value);
                 viewData = viewData.filter(item => {
-                    const myItem = data[item][filt].toString().toLowerCase();
+                    const myItem = data[item][filt].value.toString().toLowerCase();
                     return myItem === filtVal.toString().toLowerCase();
                 });
             }
@@ -39,19 +39,19 @@ export default Compute(state`tableSortOptions`,
     }
 
 
-    if (!sortType) {
+    if (!sortType || !sortType.value) {
         return viewData;
     }
 
     if (!sortType.sortDescending) {
         orderedArray = viewData.sort((function (a, b) {
-            return parseFloat(data[a][sortType.value]) > parseFloat(data[b][sortType.value]) ? 1 :
-                parseFloat(data[a][sortType.value]) < parseFloat(data[b][sortType.value]) ? -1 : 0;
+            return parseFloat(data[a][sortType.value].value) > parseFloat(data[b][sortType.value].value) ? 1 :
+                parseFloat(data[a][sortType.value].value) < parseFloat(data[b][sortType.value].value) ? -1 : 0;
         }));
     } else {
         orderedArray = viewData.sort((function (a, b) {
-            return parseFloat(data[a][sortType.value]) > parseFloat(data[b][sortType.value]) ? -1 :
-                parseFloat(data[a][sortType.value]) < parseFloat(data[b][sortType.value]) ? 1 : 0;
+            return parseFloat(data[a][sortType.value].value) > parseFloat(data[b][sortType.value].value) ? -1 :
+                parseFloat(data[a][sortType.value].value) < parseFloat(data[b][sortType.value].value) ? 1 : 0;
         }));
     }
 

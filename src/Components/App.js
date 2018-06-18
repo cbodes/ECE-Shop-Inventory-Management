@@ -5,20 +5,43 @@ import { state, signal } from "cerebral/tags";
 import TablePage from './TablePage'
 import FrontPage from './FrontPage'
 import EntryPage from './EntryPage'
+import LoginForm from './LoginForm'
 import controller from '../controller'
 
 
 export default connect(
     {
-        currentPage: state`currentPage`
+        currentPage: state`currentPage`,
+        showLogin: state`loginStatus.showLoginForm`
     },
-    function App({currentPage}) {
+    function App({showLogin, currentPage}) {
         if (currentPage === "Front") {
-            return <FrontPage/>;
+            return (
+                <div>
+                    {showLogin &&
+                        <LoginForm/>
+                    }
+                    <FrontPage/>
+                </div>
+        )
         } else if (currentPage === "Entry") {
-            return <EntryPage/>
+            return (
+                <div>
+                    {showLogin &&
+                        <LoginForm/>
+                    }
+                    <EntryPage/>
+                </div>
+            )
         } else {
-            return <TablePage/>;
+            return (
+                <div>
+                    {showLogin &&
+                        <LoginForm/>
+                    }
+                    <TablePage/>
+                </div>
+            )
         }
     }
 )

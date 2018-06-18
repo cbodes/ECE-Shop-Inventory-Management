@@ -4,6 +4,18 @@ import { props, state } from 'cerebral/tags'
 import * as actions from './actions'
 import * as helpers from '../helpers'
 
+export const cancelLogin = [
+    set(state`loginStatus.showLoginForm`, false)
+];
+
+export const submitLogin = [
+    actions.submitLogin,
+    set(state`loginStatus.showLoginForm`, false)
+];
+
+export const loginButtonClicked = [
+    set(state`loginStatus.showLoginForm`, true)
+];
 
 export const sortTable = [
     when(props`headerName`, state`tableSortOptions.value`, (newValue, oldValue) => newValue === oldValue), {
@@ -15,12 +27,13 @@ export const sortTable = [
 
 export const changeMenuSelection = [
     actions.clearEntries,
+    set(state`tableSortOptions.value`, ""),
     when(state`componentSelection`, props`menuSelection`, (oldSelection, newSelection) =>
         newSelection.length < oldSelection.length && helpers.compareArray(newSelection.slice(0, oldSelection.length), oldSelection)), {
             true: [],
             false: set(state`componentSelection`, props`menuSelection`),
     },
-    actions.getData
+    actions.getData,
 ];
 
 export const cancelEntry = [
@@ -44,6 +57,8 @@ export const deleteEntry =[
 
 export const changePage = [
     set(state`currentPage`, props`newPage`),
+    set(state`loginStatus.showLoginForm`, false),
+    set(state`tableSortOptions.value`, "")
 ];
 
 
@@ -74,6 +89,10 @@ export const changeFilterValue = [
             set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.min`, ""),
             set(state`menuItems.${state`componentSelection.0`}.filterOptions.${props`entryName`}.max`, ""),]
     }
+];
+
+export const changeLoginEntry = [
+    set(state`loginStatus.${props`entryName`}`, props`newValue`)
 ];
 
 export const changeEntryValue = [

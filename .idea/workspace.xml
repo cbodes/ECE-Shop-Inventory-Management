@@ -5,24 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63c76426-bfdb-41c6-8ebd-bc2c85aacb71" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/computed/itemIsActive.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/computed/sortTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/FilterMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/FilterMenu_Backup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/LoginForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/.ComponentTable.js.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/ComponentTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ComponentTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EntryPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EntryPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RadioEntry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RadioEntry.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/RadioFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RadioFilter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/TablePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TablePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/TextEntry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TextEntry.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/TextFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TextFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/entryNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/entryNavBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/rootModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/rootModule.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/sequences.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/sequences.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/computed/filterTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/computed/filterTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,41 +34,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="actions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/actions.js">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sequences.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/sequences.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+            <state relative-caret-position="252">
+              <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
               <folding>
-                <element signature="e#1#62#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComponentTable.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/ComponentTable.js">
+      <file leaf-file-name="TablePage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/TablePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="76" column="39" lean-forward="true" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
+            <state relative-caret-position="375">
+              <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rootModule.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="entryNavBar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/entryNavBar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginForm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/LoginForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rootModule.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/rootModule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="810" column="42" selection-start-line="810" selection-start-column="42" selection-end-line="810" selection-end-column="42" />
+            <state relative-caret-position="207">
+              <caret line="789" column="27" selection-start-line="789" selection-start-column="27" selection-end-line="789" selection-end-column="27" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -81,17 +106,35 @@
       <file leaf-file-name="EntryPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/EntryPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="61" column="52" lean-forward="true" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
+            <state relative-caret-position="642">
+              <caret line="56" column="54" lean-forward="true" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.css">
+      <file leaf-file-name="sequences.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/sequences.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="255">
+              <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/actions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComponentTable.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/ComponentTable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -107,19 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>name</find>
-      <find>unit</find>
-      <find>currentCom</find>
-      <find>id=</find>
-      <find>front</find>
-      <find>switch</find>
-      <find>currentComp</find>
-      <find>menuItems</find>
-      <find>state.set</find>
-      <find>curren</find>
-      <find>parseInt</find>
-      <find>canRange</find>
-      <find>keys</find>
       <find>getData</find>
       <find>isActive</find>
       <find>filterIsSet</find>
@@ -134,9 +164,22 @@
       <find>width</find>
       <find>compon</find>
       <find>root</find>
-      <find>isRange</find>
+      <find>overflow</find>
+      <find>is-tab</find>
+      <find>ce</find>
+      <find>column</find>
       <find>props</find>
+      <find>center</find>
+      <find>isRange</find>
+      <find>has-text</find>
+      <find>data</find>
+      <find>is-table</find>
+      <find>navbar-end</find>
       <find>tableData</find>
+      <find>sortTable</find>
+      <find>login</find>
+      <find>margin</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>Text</replace>
@@ -176,25 +219,28 @@
         <option value="$PROJECT_DIR$/src/Components/EntryTable.js" />
         <option value="$PROJECT_DIR$/src/Components/MenuItem.js" />
         <option value="$PROJECT_DIR$/src/Components/FrontPage.js" />
-        <option value="$PROJECT_DIR$/src/Components/TextFilter.js" />
         <option value="$PROJECT_DIR$/src/Components/TextEntry.js" />
-        <option value="$PROJECT_DIR$/src/Components/entryNavBar.js" />
-        <option value="$PROJECT_DIR$/src/Components/App.js" />
         <option value="$PROJECT_DIR$/src/controller.js" />
         <option value="$PROJECT_DIR$/src/computed/itemIsActive.js" />
         <option value="$PROJECT_DIR$/src/computed/sortTable.js" />
-        <option value="$PROJECT_DIR$/src/computed/filterTable.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/Components/TablePage.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/src/Components/RadioFilter.js" />
         <option value="$PROJECT_DIR$/src/Components/RadioEntry.js" />
-        <option value="$PROJECT_DIR$/src/app/rootModule.js" />
         <option value="$PROJECT_DIR$/src/Components/EntryPage.js" />
-        <option value="$PROJECT_DIR$/src/app/sequences.js" />
-        <option value="$PROJECT_DIR$/src/app/actions.js" />
+        <option value="$PROJECT_DIR$/src/Components/FilterMenu_Backup.js" />
+        <option value="$PROJECT_DIR$/src/Components/RadioFilter.js" />
+        <option value="$PROJECT_DIR$/src/Components/TextFilter.js" />
+        <option value="$PROJECT_DIR$/src/Components/LoginForm.js" />
+        <option value="$PROJECT_DIR$/src/Components/FilterMenu.js" />
+        <option value="$PROJECT_DIR$/src/computed/filterTable.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/Components/ComponentTable.js" />
+        <option value="$PROJECT_DIR$/src/app/sequences.js" />
+        <option value="$PROJECT_DIR$/src/Components/App.js" />
+        <option value="$PROJECT_DIR$/src/Components/TablePage.js" />
+        <option value="$PROJECT_DIR$/src/Components/entryNavBar.js" />
+        <option value="$PROJECT_DIR$/src/app/actions.js" />
+        <option value="$PROJECT_DIR$/src/app/rootModule.js" />
       </list>
     </option>
   </component>
@@ -269,7 +315,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/cam/WebstormProjects/untitled/src/app/rootModule.js" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/cam/WebstormProjects/untitled/src/Components/TablePage.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -285,6 +331,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/Components" />
@@ -336,12 +385,12 @@
       <updated>1527114471240</updated>
       <workItem from="1527114472420" duration="3084000" />
       <workItem from="1527117703566" duration="227539000" />
-      <workItem from="1528377625952" duration="116636000" />
+      <workItem from="1528377625952" duration="160851000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347259000" />
+    <option name="totallyTimeSpent" value="391474000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
@@ -350,11 +399,11 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18229167" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005208" side_tool="true" visible="true" weight="0.30144033" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32921812" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30144033" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.30144033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -404,33 +453,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/TablePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/counts.js" />
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -527,23 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/TextEntry.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
-          <folding>
-            <element signature="e#2#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/TextFilter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -588,67 +593,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/computed/filterTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/TablePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="53" column="76" lean-forward="true" selection-start-line="53" selection-start-column="76" selection-end-line="53" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/RadioFilter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="88" lean-forward="true" selection-start-line="31" selection-start-column="88" selection-end-line="31" selection-end-column="88" />
-          <folding>
-            <element signature="e#2#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/entryNavBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="20" column="46" lean-forward="true" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -682,43 +630,147 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/EntryPage.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/FilterMenu_Backup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="61" column="52" lean-forward="true" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/rootModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="810" column="42" selection-start-line="810" selection-start-column="42" selection-end-line="810" selection-end-column="42" />
+        <state relative-caret-position="120">
+          <caret line="26" column="81" lean-forward="true" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/actions.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/RadioFilter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+        <state relative-caret-position="240">
+          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding>
+            <element signature="e#2#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TextFilter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="63" lean-forward="true" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
+          <folding>
+            <element signature="e#2#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TextEntry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <folding>
+            <element signature="e#2#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/FilterMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="23" column="65" lean-forward="true" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/computed/filterTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/ComponentTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="76" column="39" lean-forward="true" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
+        <state relative-caret-position="375">
+          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/sequences.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+        <state relative-caret-position="255">
+          <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/LoginForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding>
-            <element signature="e#1#62#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/entryNavBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TablePage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/EntryPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="56" column="54" lean-forward="true" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/rootModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="789" column="27" selection-start-line="789" selection-start-column="27" selection-end-line="789" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

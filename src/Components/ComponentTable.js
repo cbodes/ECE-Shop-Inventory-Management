@@ -21,8 +21,8 @@ export default connect(
     function App({ tableHeaders, tableData, sortTable, sortOptions, filteredTable, deleteEntry, hasDelete, modifyEntry,
                  modifyOptions}) {
         return (
-            <div className="box is-table">
-                <table className="table is-striped is-narrow">
+            <div className="box has-text-centered has-scroller">
+                <table className="table is-narrow" id="component-table">
                     <thead>
                     <tr>
                         {Object.keys(tableHeaders).map(name =>
@@ -37,20 +37,6 @@ export default connect(
                                     {tableHeaders[name].itemName +
                                     (tableHeaders[name].unit && " (" + tableHeaders[name].unit + ")")}
                                 </span>
-                                {sortOptions.value === name && sortOptions.sortDescending === true &&
-                                <span className="icon is-right">
-                                        <svg className="fa fa-angle-down"/>
-                                </span>
-                                }
-                                {sortOptions.value === name && sortOptions.sortDescending === false &&
-                                <span className="icon is-right">
-                                        <svg className="fa fa-angle-up"/>
-                                </span>
-                                }
-                                {sortOptions.value !== name &&
-                                <span className="icon is-right">
-                                </span>
-                                }
                             </th>
                         )}
                         {hasDelete &&
@@ -67,9 +53,8 @@ export default connect(
                         <tr className={modifyOptions && modifyOptions.stateID === row ?
                             "row-selected" : ""}>
                             {Object.keys(tableHeaders).map(colName =>
-                                <td className="has-text-centered">{tableData[row][colName.toLowerCase()].strValue ?
-                                    tableData[row][colName.toLowerCase()].strValue :
-                                    tableData[row][colName.toLowerCase()].toString()}</td>
+                                <td className="has-text-centered">{tableData[row][colName.toLowerCase()] &&
+                                tableData[row][colName.toLowerCase()].strValue}</td>
                             )}
                             {hasDelete &&
                                 <td className="has-text-centered">

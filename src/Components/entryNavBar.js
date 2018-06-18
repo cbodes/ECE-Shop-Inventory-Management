@@ -13,9 +13,12 @@ export default connect(
         menuItems: state`menuItems`,
         changeSelection: signal`menuSelectionChanged`,
         activateMenu: signal`menuButtonPressed`,
-        homeButtonClicked: signal`pageChangeClicked`
+        homeButtonClicked: signal`pageChangeClicked`,
+        loginButtonClicked: signal`loginButtonClicked`,
+        loginStatus: state`loginStatus.loginValid`
     },
-    function App({currentComponent, menuItems, changeSelection, activateMenu, menuIsActive, homeButtonClicked }) {
+    function App({currentComponent, menuItems, changeSelection, activateMenu, menuIsActive, homeButtonClicked,
+                     loginStatus, loginButtonClicked}) {
         return (
             <nav className="navbar is-dark">
                 <div className="navbar-brand">
@@ -36,7 +39,6 @@ export default connect(
                         <span/>
                     </div>
                 </div>
-                <div className="navbar-start">
                     <div className={menuIsActive ? "navbar-menu is-active" : "navbar-menu"} id="navBarMenu">
                         <div className="navbar-start">
                             <div className="navbar-item has-dropdown is-hoverable has-text-white">
@@ -63,7 +65,19 @@ export default connect(
                                     )}
                                 </div>
                             </div>
-                        </div>
+                    </div>
+                    <div className="navbar-end">
+                        <a className="navbar-item"
+                           onClick={() => {
+                               loginStatus ?
+                                   homeButtonClicked({
+                                       newPage: "Entry"
+                                   }) :
+                                   loginButtonClicked()
+
+                           }}>
+                            {loginStatus ? "Admin" : "Login"}
+                        </a>
                     </div>
                 </div>
             </nav>

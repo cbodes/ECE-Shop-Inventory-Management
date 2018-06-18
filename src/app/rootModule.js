@@ -787,7 +787,7 @@ export default Module({
                 }
             },
         },
-        currentPage: "Entry",
+        currentPage: "Front",
         getData: {
 
         },
@@ -808,7 +808,11 @@ export default Module({
         deleteEntry: sequences.deleteEntry,
         sortTable: sequences.sortTable,
         modifyEntry: sequences.modifyEntry,
-        cancelEntry: sequences.cancelEntry
+        cancelEntry: sequences.cancelEntry,
+        loginButtonClicked: sequences.loginButtonClicked,
+        changeLoginEntry: sequences.changeLoginEntry,
+        submitLogin: sequences.submitLogin,
+        cancelLogin: sequences.cancelLogin
     },
     providers: {
             test: {
