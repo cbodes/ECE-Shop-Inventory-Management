@@ -41,7 +41,11 @@ export function modifyEntry({state, props}) {
     const entryOptions = state.get(`menuItems.${currComp}.entryOptions`);
 
     for (let key in entryOptions) {
-        state.set(`menuItems.${currComp}.entryOptions.${key}.value`, myEntry[key])
+        if (myEntry[key]) {
+            state.set(`menuItems.${currComp}.entryOptions.${key}.value`, myEntry[key])
+        } else {
+            state.set(`menuItems.${currComp}.entryOptions.${key}.value`, "")
+        }
     }
 }
 

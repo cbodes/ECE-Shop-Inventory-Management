@@ -29,10 +29,10 @@ export default connect(
                         <div className="field has-addons">
                             {myObject["options"] != undefined && myObject["options"].map(x =>
                                 <p className="control">
-                                    <a className={!active ? "button is-dark is-static" :
+                                    <a className={!active ? "button is-dark is-static is-small" :
                                         myObject["value"] &&
                                         myObject["value"].toLowerCase() === x.toLowerCase() && active ?
-                                            "button is-dark" : "button is-dark is-outlined"}
+                                            "button is-dark is-small" : "button is-dark is-outlined is-small"}
                                        onClick={(e) => {
                                            e.preventDefault()
                                            changeFilterValue({

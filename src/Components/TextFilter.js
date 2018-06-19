@@ -30,7 +30,7 @@ export default connect(
                     <div className="field-body has-addons">
                         <div className="field">
                             <div className="control has-icons-right">
-                                <input className="input is-small" placeholder="No Value"
+                                <input className="input is-small is-dark" placeholder="Enter a value"
                                        value={myObject.value}
                                        onChange={(e) => changeFilterValue({
                                            newValue: e.target.value,
@@ -48,15 +48,10 @@ export default connect(
                 </div>
                 {myObject.canRange &&
                 <div className="field">
-                    <div className="field-label is-normal">
-                        <p className="subtitle is-6 has-text-left">
-                            Range
-                        </p>
-                    </div>
                     <div className="field-body has-addons">
                         <div className="field">
                             <div className="control has-icons-right">
-                                <input className="input is-small" placeholder="Min"
+                                <input className="input is-small is-dark" placeholder="Min"
                                        value={myObject.min}
                                        onChange={(e) => changeFilterValue({
                                            newValue: e.target.value,
@@ -70,7 +65,7 @@ export default connect(
                         </div>
                         <div className="field">
                             <div className="control has-icons-right">
-                                <input className="input is-small" placeholder="Max"
+                                <input className="input is-small is-dark" placeholder="Max"
                                        value={myObject.max}
                                        onChange={(e) => changeFilterValue({
                                            newValue: e.target.value,

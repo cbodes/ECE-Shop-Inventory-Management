@@ -13,7 +13,7 @@ export default connect(
         name: props`entryName`,
         unit: props`unit`,
         showName: props`showName`,
-        myError: state`requestError.${props`entryName`}`
+        myError: state`requestError.${props`entryName`}.value`
     },
     function App({ myObject, name, unit, changeEntryValue, showName, myError}) {
         return (

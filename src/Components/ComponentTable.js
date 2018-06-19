@@ -21,22 +21,32 @@ export default connect(
     function App({ tableHeaders, tableData, sortTable, sortOptions, filteredTable, deleteEntry, hasDelete, modifyEntry,
                  modifyOptions}) {
         return (
-            <div className="box has-text-centered has-scroller">
-                <table className="table is-narrow" id="component-table">
+            <div className="box has-text-centered has-scroller has-backshadow">
+                <table className="table is-narrow is-fullwidth" id="component-table">
                     <thead>
                     <tr>
                         {Object.keys(tableHeaders).map(name =>
 
                             <th className="has-text-centered is-clickable"
-                            onClick={() =>
-                                sortTable({
-                                    headerName: name
-                                })
-                            }>
+                                onClick={() =>
+                                    sortTable({
+                                        headerName: name
+                                    })
+                                }>
                                 <span className="control has-icons-right">
                                     {tableHeaders[name].itemName +
                                     (tableHeaders[name].unit && " (" + tableHeaders[name].unit + ")")}
                                 </span>
+                                {sortOptions.value === name && sortOptions.sortDescending === true &&
+                                <span className="icon is-right">
+                                        <svg className="fa fa-angle-down"/>
+                                </span>
+                                }
+                                {sortOptions.value === name && sortOptions.sortDescending === false &&
+                                <span className="icon is-right">
+                                        <svg className="fa fa-angle-up"/>
+                                </span>
+                                }
                             </th>
                         )}
                         {hasDelete &&

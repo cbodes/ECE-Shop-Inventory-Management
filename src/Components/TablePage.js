@@ -19,7 +19,7 @@ export default connect(
             <div id="TablePageWrapper">
                 <NavBar/>
                 <div className="container" id="horizontal-table-container">
-                <div className="columns is-multiline" id="page-body">
+                <div className="columns is-desktop" id="page-body">
                     <div className="column" id="table-page-column">
                         <FilterMenu/>
                     </div>
